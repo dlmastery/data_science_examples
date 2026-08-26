@@ -23,6 +23,7 @@ from explainability import ExplainableAIEngine
 from mlops import MLOpsGovernanceEngine
 from paper import get_crisp_dm_paper_dossier
 from snippets import get_code_audit_snippets
+from architecture import get_system_architecture_dossier
 
 # Initialize FastAPI App
 app = FastAPI(
@@ -232,3 +233,7 @@ def get_mlops_drift():
 @app.post("/api/mlops/load-test")
 def run_concurrency_load_test(req: LoadTestRequest):
     return mlops_engine.execute_live_load_test(concurrency=req.concurrency, num_requests=req.num_requests)
+
+@app.get("/api/architecture/skills")
+def get_system_architecture():
+    return get_system_architecture_dossier()

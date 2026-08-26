@@ -222,6 +222,24 @@ in some of the screens - specifically the data science screen - the markup was n
 ```
 * **Execution**: Engineered and integrated `MarkdownMathRenderer.tsx` with KaTeX LaTeX mathematical typography across Project 13 (`CrispDmPaperDossier.tsx`, `core/paper.py`) and Project 10 (`Phase1Understanding.tsx`, `Phase6LSH.tsx`). Converted raw LaTeX strings (`$$\max...$$`, `$d_{\text{hav}}$`, `$\mathcal{O}(N \cdot D)$`, `$\text{PSI}$`), Markdown headings (`###`), bold text, bullet points, and tables into cleanly formatted mathematical components. Verified via Playwright browser test suite.
 
+---
+
+### 10. System Architecture Skills Matrix & Comprehensive EDA Expansion
+```text
+in the data science page you need to have a link to - how this app is fully biult - what data sciene scills are used. also the eda page is very basic - it need to be fixed. checkin everything in github once you fix
+```
+* **Execution**:
+  1. **Full-Stack Architecture & 23 Skills Matrix**: Created backend module [`core/architecture.py`](./13_crispdm_nyc_taxi_audit_platform/core/architecture.py) and frontend components [`ArchitectureSkillsModal.tsx`](./13_crispdm_nyc_taxi_audit_platform/client/src/components/ArchitectureSkillsModal.tsx) & [`ArchitectureSkillsTab.tsx`](./13_crispdm_nyc_taxi_audit_platform/client/src/components/ArchitectureSkillsTab.tsx). Accessible via a prominent Navbar button and dedicated Admin Portal tab, cataloging all 23 skills with category tags, mathematical derivations rendered in KaTeX, and source code line references.
+  2. **Textbook-Grade Exploratory Data Analysis Dashboard**: Re-engineered [`core/eda.py`](./13_crispdm_nyc_taxi_audit_platform/core/eda.py) and [`EdaDashboard.tsx`](./13_crispdm_nyc_taxi_audit_platform/client/src/components/EdaDashboard.tsx) into a 6-subtab visual analytics suite:
+     - *Feature Distributions & Tukey IQR Outliers*: 14-bin histograms with empirical mean/median markers and $[Q1 - 1.5 \times \text{IQR}, Q3 + 1.5 \times \text{IQR}]$ fence diagnostics.
+     - *Bivariate Regression Scatters*: 300-point 2D coordinate projections with OLS linear trendlines ($\hat{y} = \beta x + \alpha$), $R^2$, and Pearson $r$.
+     - *24h × 7D Temporal Heatmap*: Hourly demand matrix mapping rush-hour congestion surges across all 7 days of the week.
+     - *NYC Borough Zone Analytics*: Multi-borough partition table tracking volume shares, mean fares, median trip distances, and tip propensities across 12 zones.
+     - *Correlation Matrices & Categoricals*: Pearson & Spearman correlation heatmaps and discrete category breakdowns.
+     - *6-Dimension Quality Scorecard*: 100% completeness, uniqueness, spatial bounds validity, and schema dictionary.
+  3. **Automated Verification & Artifacts**: Updated [`scripts/browser_test_suite.py`](./scripts/browser_test_suite.py) (12/12 steps verified, 100% pass) and synchronized 9 screenshots to GitHub.
+
+
 
 
 

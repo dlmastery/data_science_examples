@@ -52,7 +52,8 @@ export type AdminTab =
   | 'model_tournament'
   | 'shap_xai'
   | 'code_auditor'
-  | 'mlops_loadtest';
+  | 'mlops_loadtest'
+  | 'architecture_skills';
 
 // Data Interfaces
 export interface PredictionResponse {

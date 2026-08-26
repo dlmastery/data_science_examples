@@ -1,12 +1,13 @@
 import React from 'react';
-import { Car, ShieldCheck, FileText, Cpu, Activity, BarChart3, MapPin } from 'lucide-react';
+import { Car, ShieldCheck, FileText, Cpu, Activity, BarChart3, MapPin, Layers } from 'lucide-react';
 
 interface NavbarProps {
   currentView: 'estimator' | 'admin';
   onSelectView: (view: 'estimator' | 'admin') => void;
+  onOpenArchitecture: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ currentView, onSelectView }) => {
+export const Navbar: React.FC<NavbarProps> = ({ currentView, onSelectView, onOpenArchitecture }) => {
   return (
     <header className="sticky top-0 z-50 glass-panel border-b border-slate-800/80 px-6 py-3.5">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -30,8 +31,16 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onSelectView }) => 
           </div>
         </div>
 
-        {/* View Switcher */}
+        {/* View Switcher & Architecture Trigger */}
         <div className="flex items-center gap-3">
+          <button
+            onClick={onOpenArchitecture}
+            className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 text-cyan-400 text-xs font-semibold transition-all shadow-sm"
+          >
+            <Layers className="w-3.5 h-3.5 text-cyan-400" />
+            <span>How This App Is Built (23 Skills)</span>
+          </button>
+
           <div className="flex items-center bg-slate-900/90 p-1 rounded-xl border border-slate-800">
             <button
               onClick={() => onSelectView('estimator')}
@@ -58,7 +67,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onSelectView }) => 
           </div>
 
           {/* Backend Status Badge */}
-          <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-950/40 border border-emerald-500/20 text-emerald-400 text-xs font-mono">
+          <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-950/40 border border-emerald-500/20 text-emerald-400 text-xs font-mono">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
             FastAPI: 8013
           </div>
