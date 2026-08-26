@@ -333,6 +333,7 @@ export const EstimatorView = () => {
         dropoffName={dropoffLandmark.name}
         onSelectLandmark={handleMapSelectLandmark}
       />
+      </div>
     </div>
   );
 };
