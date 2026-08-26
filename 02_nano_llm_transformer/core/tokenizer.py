@@ -1,8 +1,7 @@
-# NanoLlama Tokenizer — Subword & Chat Template Tokenizer
+# NanoLlama Clean Character & Special Token Tokenizer
 
 import json
-import re
-from typing import List, Dict, Tuple, Optional
+from typing import List, Dict, Optional
 
 SPECIAL_TOKENS = {
     "<|pad|>": 0,
@@ -18,46 +17,26 @@ class NanoTokenizer:
         self.special_tokens = dict(SPECIAL_TOKENS)
         self.vocab = dict(SPECIAL_TOKENS)
         self.inv_vocab = {v: k for k, v in self.vocab.items()}
-        self._build_default_vocab()
+        self._build_vocab()
 
-    def _build_default_vocab(self):
-        """Build high-frequency English subwords, letters, digits, and code tokens."""
-        # 1. ASCII Characters
-        for i in range(32, 127):
-            ch = chr(i)
+    def _build_vocab(self):
+        """Construct exact 1:1 character vocabulary for all printable ASCII, newlines, tabs."""
+        # 1. ASCII characters 32 to 126
+        for code in range(32, 127):
+            ch = chr(code)
             if ch not in self.vocab:
                 idx = len(self.vocab)
                 self.vocab[ch] = idx
                 self.inv_vocab[idx] = ch
 
-        # 2. Frequent Subwords and Words for Chat, Stories, and Python Code
-        common_words = [
-            "\n", "  ", "    ", " ", "the", "be", "to", "of", "and", "a", "in", "that", "have",
-            "I", "it", "for", "not", "on", "with", "he", "as", "you", "do", "at", "this",
-            "but", "his", "by", "from", "they", "we", "say", "her", "she", "or", "an", "will",
-            "my", "one", "all", "would", "there", "their", "what", "so", "up", "out", "if",
-            "about", "who", "get", "which", "go", "me", "when", "make", "can", "like", "time",
-            "no", "just", "him", "know", "take", "people", "into", "year", "your", "good",
-            "some", "could", "them", "see", "other", "than", "then", "now", "look", "only",
-            "come", "its", "over", "think", "also", "back", "after", "use", "two", "how",
-            "our", "work", "first", "well", "way", "even", "new", "want", "because", "any",
-            "these", "give", "day", "most", "us", "is", "are", "was", "were", "been", "has",
-            "had", "AI", "Python", "code", "def", "return", "import", "print", "class",
-            "function", "story", "once", "upon", "forest", "little", "dragon", "magic",
-            "hello", "hi", "assistant", "helpful", "friendly", "explain", "why", "solve",
-            "problem", "question", "answer", "reasoning", "step", "because", "therefore",
-            "algorithm", "neural", "network", "llama", "model", "prompt", "token", "attention",
-            "true", "false", "None", "elif", "else", "for", "while", "in", "range", "len"
-        ]
-
-        for w in common_words:
-            if w not in self.vocab:
+        # 2. Control characters
+        for ch in ['\n', '\t', '\r']:
+            if ch not in self.vocab:
                 idx = len(self.vocab)
-                self.vocab[w] = idx
-                self.inv_vocab[idx] = w
+                self.vocab[ch] = idx
+                self.inv_vocab[idx] = ch
 
     def encode(self, text: str, add_bos: bool = False, add_eos: bool = False) -> List[int]:
-        """Greedy longest-matching subword tokenization."""
         tokens = []
         if add_bos:
             tokens.append(self.special_tokens["<|bos|>"])
@@ -76,21 +55,9 @@ class NanoTokenizer:
             if matched_special:
                 continue
 
-            # Greedy match longest subword in vocab
-            matched = False
-            for l in range(min(16, n - i), 0, -1):
-                sub = text[i: i + l]
-                if sub in self.vocab:
-                    tokens.append(self.vocab[sub])
-                    i += l
-                    matched = True
-                    break
-
-            if not matched:
-                # Fallback to single character or byte
-                ch = text[i]
-                tokens.append(self.vocab.get(ch, self.special_tokens["<|pad|>"]))
-                i += 1
+            ch = text[i]
+            tokens.append(self.vocab.get(ch, self.vocab.get(' ')))
+            i += 1
 
         if add_eos:
             tokens.append(self.special_tokens["<|eos|>"])
@@ -98,43 +65,25 @@ class NanoTokenizer:
         return tokens
 
     def decode(self, tokens: List[int], skip_special_tokens: bool = False) -> str:
-        """Decode token IDs back into string."""
-        chars = []
+        res = []
         for t in tokens:
-            if skip_special_tokens and t in self.special_tokens.values():
-                continue
-            chars.append(self.inv_vocab.get(t, ""))
-        return "".join(chars)
+            if t in self.inv_vocab:
+                val = self.inv_vocab[t]
+                if skip_special_tokens and val in self.special_tokens:
+                    continue
+                res.append(val)
+        return "".join(res)
 
-    def format_chat(self, user_msg: str, system_msg: str = "You are NanoLlama, a helpful, brilliant AI assistant.") -> str:
-        """Format message into structured instruction chat template."""
-        return f"<|system|>\n{system_msg}\n<|user|>\n{user_msg}\n<|assistant|>\n"
-
-    def tokenize_with_metadata(self, text: str) -> List[Dict]:
-        """Tokenize text and return list of tokens with subword string, ID, and color tag."""
-        token_ids = self.encode(text)
-        result = []
-        for tid in token_ids:
-            sub = self.inv_vocab.get(tid, "")
-            is_special = tid in self.special_tokens.values()
-            result.append({
-                "id": tid,
-                "text": sub,
-                "is_special": is_special,
-                "length": len(sub)
-            })
-        return result
+    def format_chat(self, user_msg: str, system_prompt: str = "You are NanoLlama, a helpful AI assistant.") -> str:
+        return f"<|system|>{system_prompt}<|user|>{user_msg}<|assistant|>"
 
     def save(self, filepath: str):
         with open(filepath, 'w', encoding='utf-8') as f:
-            json.dump({
-                "vocab": self.vocab,
-                "special_tokens": self.special_tokens
-            }, f, indent=2)
+            json.dump({"vocab": self.vocab, "special_tokens": self.special_tokens}, f, indent=2)
 
     def load(self, filepath: str):
         with open(filepath, 'r', encoding='utf-8') as f:
             data = json.load(f)
             self.vocab = data["vocab"]
-            self.special_tokens = data["special_tokens"]
+            self.special_tokens = data.get("special_tokens", SPECIAL_TOKENS)
             self.inv_vocab = {v: k for k, v in self.vocab.items()}

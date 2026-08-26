@@ -1,4 +1,4 @@
-# NanoLlama Training Pipeline — Cosine Annealing, AdamW, Perplexity & Checkpointing
+# NanoLlama Fast & Clean SFT Training Pipeline (max_seq_len = 384)
 
 import os
 import sys
@@ -19,26 +19,26 @@ from dataset import ChatDataset
 CHECKPOINTS_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '../server/checkpoints'))
 
 def train_nanollama(
-    epochs: int = 15,
+    epochs: int = 20,
     batch_size: int = 16,
-    lr: float = 3e-3,
-    max_seq_len: int = 96,
+    lr: float = 3.5e-3,
+    max_seq_len: int = 384,
     export_dir: str = CHECKPOINTS_DIR
 ):
     os.makedirs(export_dir, exist_ok=True)
-    print("🚀 Initializing NanoLlama SOTA Model & Tokenizer Training...", flush=True)
+    print("🚀 Initializing Clean NanoLlama SFT Model & Tokenizer Training...", flush=True)
     start_time = time.time()
 
     # 1. Tokenizer
     tokenizer = NanoTokenizer()
     vocab_size = len(tokenizer.vocab)
-    print(f"📖 Tokenizer Vocabulary: {vocab_size} tokens", flush=True)
+    print(f"📖 Tokenizer Vocabulary: {vocab_size} clean ASCII & Special Tokens", flush=True)
 
-    # 2. Model Initialization
+    # 2. Model Initialization (128 Dim, 3 Layers, 4 Heads)
     dim = 128
     n_layers = 3
     n_heads = 4
-    ffn_hidden_dim = 384
+    ffn_hidden_dim = 256
 
     model = NanoLlama(
         vocab_size=vocab_size,
@@ -50,24 +50,24 @@ def train_nanollama(
     )
 
     param_count = model.count_parameters()
-    print(f"🧠 Model Architecture: {n_layers} Layers | {n_heads} Heads (dim {dim//n_heads}) | RoPE | SwiGLU ({ffn_hidden_dim}) | RMSNorm", flush=True)
+    print(f"🧠 Model Architecture: {n_layers} Layers | {n_heads} Heads (dim {dim//n_heads}) | RoPE | SwiGLU ({ffn_hidden_dim}) | RMSNorm | MaxSeqLen {max_seq_len}", flush=True)
     print(f"📊 Total Trainable Parameters: {param_count:,}", flush=True)
 
-    # 3. Dataset & DataLoader
-    dataset = ChatDataset(tokenizer=tokenizer, max_seq_len=max_seq_len, repeat_factor=15)
-    train_size = int(len(dataset) * 0.85)
+    # 3. SFT Dataset with Assistant Token Loss Masking
+    dataset = ChatDataset(tokenizer=tokenizer, max_seq_len=max_seq_len, repeat_factor=10)
+    train_size = int(len(dataset) * 0.9)
     val_size = len(dataset) - train_size
     train_ds, val_ds = torch.utils.data.random_split(dataset, [train_size, val_size])
 
     train_loader = DataLoader(train_ds, batch_size=batch_size, shuffle=True)
     val_loader = DataLoader(val_ds, batch_size=batch_size, shuffle=False)
 
-    print(f"🧪 Training Samples: {len(train_ds)} | Validation Samples: {len(val_ds)}")
+    print(f"🧪 Training Samples: {len(train_ds)} | Validation Samples: {len(val_ds)}", flush=True)
 
     # 4. Optimizer & Cosine LR Schedule
     optimizer = torch.optim.AdamW(model.parameters(), lr=lr, weight_decay=0.01, betas=(0.9, 0.95))
     total_steps = epochs * len(train_loader)
-    warmup_steps = max(10, int(total_steps * 0.05))
+    warmup_steps = max(5, int(total_steps * 0.05))
 
     def get_lr(step: int) -> float:
         if step < warmup_steps:
@@ -80,14 +80,13 @@ def train_nanollama(
     telemetry_val_curve = []
     global_step = 0
 
-    print("\n🏋️ Starting Optimization Loop...")
+    print("\n🏋️ Starting Optimization Loop...", flush=True)
     for epoch in range(1, epochs + 1):
         model.train()
         epoch_loss = 0.0
         t0 = time.time()
 
         for batch_x, batch_y in train_loader:
-            # Update learning rate
             curr_lr = get_lr(global_step)
             for param_group in optimizer.param_groups:
                 param_group['lr'] = curr_lr
@@ -96,50 +95,45 @@ def train_nanollama(
             _, loss, _ = model(batch_x, targets=batch_y)
             loss.backward()
 
-            # Gradient Clipping
-            grad_norm = nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
+            nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
             optimizer.step()
 
-            loss_val = loss.item()
-            epoch_loss += loss_val
-
-            if global_step % 5 == 0:
-                telemetry_loss_curve.append({
-                    "step": global_step,
-                    "epoch": epoch,
-                    "train_loss": round(loss_val, 4),
-                    "learning_rate": round(curr_lr, 6),
-                    "grad_norm": round(float(grad_norm), 3)
-                })
-
+            epoch_loss += loss.item()
             global_step += 1
 
         avg_train_loss = epoch_loss / len(train_loader)
+        train_ppl = math.exp(min(20.0, avg_train_loss))
 
         # Validation Step
         model.eval()
         val_loss = 0.0
         with torch.no_grad():
-            for vx, vy in val_loader:
-                _, v_loss, _ = model(vx, targets=vy)
+            for batch_x, batch_y in val_loader:
+                _, v_loss, _ = model(batch_x, targets=batch_y)
                 val_loss += v_loss.item()
-        avg_val_loss = val_loss / len(val_loader)
-        perplexity = math.exp(min(20.0, avg_val_loss))
 
-        telemetry_val_curve.append({
-            "epoch": epoch,
-            "val_loss": round(avg_val_loss, 4),
-            "perplexity": round(perplexity, 2),
-            "epoch_duration_sec": round(time.time() - t0, 2)
-        })
+        avg_val_loss = val_loss / len(val_loader)
+        val_ppl = math.exp(min(20.0, avg_val_loss))
+        elapsed = time.time() - t0
+
+        telemetry_loss_curve.append(round(avg_train_loss, 4))
+        telemetry_val_curve.append(round(avg_val_loss, 4))
 
         if epoch % 5 == 0 or epoch == epochs:
-            print(f"  ➔ Epoch {epoch:02d}/{epochs:02d} | Train Loss: {avg_train_loss:.4f} | Val Loss: {avg_val_loss:.4f} | Perplexity: {perplexity:.2f} | lr: {curr_lr:.5f}", flush=True)
+            print(f"  Epoch [{epoch:02d}/{epochs:02d}] | Train Loss: {avg_train_loss:.4f} (PPL: {train_ppl:.2f}) | Val Loss: {avg_val_loss:.4f} (PPL: {val_ppl:.2f}) | LR: {curr_lr:.6f} | Time: {elapsed:.2f}s", flush=True)
 
-    # 6. Save Checkpoints & Telemetry
-    os.makedirs(export_dir, exist_ok=True)
-    model_path = os.path.join(export_dir, 'model.pt')
-    torch.save({
+    total_training_time = round(time.time() - start_time, 2)
+    print(f"\n✅ Training Complete in {total_training_time}s!", flush=True)
+    print(f"🎯 Final Validation Loss: {avg_val_loss:.4f} | Perplexity: {val_ppl:.2f}", flush=True)
+
+    # 6. Save Checkpoints & Artifacts
+    print(f"💾 Saving Checkpoints to '{export_dir}'...", flush=True)
+
+    # Save Tokenizer
+    tokenizer.save(os.path.join(export_dir, 'tokenizer.json'))
+
+    # Save Model Checkpoint
+    checkpoint = {
         "state_dict": model.state_dict(),
         "config": {
             "vocab_size": vocab_size,
@@ -148,42 +142,45 @@ def train_nanollama(
             "n_heads": n_heads,
             "ffn_hidden_dim": ffn_hidden_dim,
             "max_seq_len": max_seq_len
+        },
+        "train_loss": avg_train_loss,
+        "val_loss": avg_val_loss,
+        "perplexity": val_ppl,
+        "parameters": param_count
+    }
+    torch.save(checkpoint, os.path.join(export_dir, 'model.pt'))
+
+    # Save Telemetry
+    telemetry_data = {
+        "model_name": "NanoLlama-SOTA",
+        "parameters": param_count,
+        "architecture": {
+            "layers": n_layers,
+            "heads": n_heads,
+            "hidden_dim": dim,
+            "ffn_dim": ffn_hidden_dim,
+            "max_seq_len": max_seq_len,
+            "vocab_size": vocab_size,
+            "rope_scaling": True,
+            "swiglu_activation": True,
+            "rmsnorm": True,
+            "kv_cache": True
+        },
+        "training_metrics": {
+            "epochs": epochs,
+            "total_time_seconds": total_training_time,
+            "final_train_loss": round(avg_train_loss, 4),
+            "final_val_loss": round(avg_val_loss, 4),
+            "final_perplexity": round(val_ppl, 2),
+            "train_loss_history": telemetry_loss_curve,
+            "val_loss_history": telemetry_val_curve
         }
-    }, model_path)
-    print(f"\n💾 Model Weights saved to: {model_path}", flush=True)
+    }
 
-    tokenizer_path = os.path.join(export_dir, 'tokenizer.json')
-    tokenizer.save(tokenizer_path)
-    print(f"💾 Tokenizer Vocab saved to: {tokenizer_path}", flush=True)
+    with open(os.path.join(export_dir, 'telemetry.json'), 'w', encoding='utf-8') as f:
+        json.dump(telemetry_data, f, indent=2)
 
-    metadata_path = os.path.join(export_dir, 'telemetry.json')
-    with open(metadata_path, 'w', encoding='utf-8') as f:
-        json.dump({
-            "model_name": "NanoLlama-SOTA",
-            "architecture": "Decoder-Only Transformer (RoPE + SwiGLU + RMSNorm)",
-            "trained_at": time.strftime("%Y-%m-%d %H:%M:%S UTC"),
-            "parameters_count": param_count,
-            "config": {
-                "vocab_size": vocab_size,
-                "embedding_dim": dim,
-                "num_layers": n_layers,
-                "num_heads": n_heads,
-                "head_dim": dim // n_heads,
-                "ffn_hidden_dim": ffn_hidden_dim,
-                "context_window": max_seq_len
-            },
-            "final_metrics": {
-                "train_loss": round(avg_train_loss, 4),
-                "val_loss": round(avg_val_loss, 4),
-                "perplexity": round(perplexity, 2),
-                "total_training_time_sec": round(time.time() - start_time, 2)
-            },
-            "training_curve": telemetry_loss_curve,
-            "validation_curve": telemetry_val_curve
-        }, f, indent=2)
-
-    total_time = time.time() - start_time
-    print(f"✨ Training complete in {total_time:.2f}s! Final Perplexity: {perplexity:.2f}", flush=True)
+    print("🎉 All artifacts and telemetry serialized successfully!", flush=True)
 
 if __name__ == '__main__':
     train_nanollama()

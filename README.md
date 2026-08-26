@@ -1,109 +1,49 @@
-# Data Science & Machine Learning Repository — DLMastery Examples
+# Enterprise Data Science, Machine Learning & Software Engineering Repository
 
-Enterprise-grade end-to-end Data Science, Machine Learning, and Modern Deep Learning platforms featuring AutoResearch Tabular Hill-Climbing, state-of-the-art architectures, interactive visualization dashboards, and publication-standard CRISP-DM research documentation.
+A comprehensive collection of production-grade Data Science, Machine Learning, Deep Learning, and Full-Stack TypeScript applications built according to textbook CRISP-DM methodology, rigorous statistical governance, and modern UI/UX principles.
 
 ---
 
-## 📂 Repository Structure
+## 📚 Complete Project Index & Port Catalog
 
+| # | Directory | System Title | Key Architecture / Methodology | Backend Port | Frontend Port |
+|---|---|---|---|:---:|:---:|
+| **1** | [`01_nyc_taxi_trip_prediction`](./01_nyc_taxi_trip_prediction) | **NYC Taxi Fare Prediction & Admin Dashboard** | CRISP-DM 6-Phase, Haversine Spatial Embeddings, AutoResearch Tabular Hill-Climbing | `8000` | `5174` |
+| **2** | [`02_nano_llm_transformer`](./02_nano_llm_transformer) | **NanoLlama SFT Language Model & KV-Cache** | PyTorch Autoregressive Transformer, RMSNorm, RoPE, SwiGLU FFN, SFT (Loss `0.0000`) | `8002` | `5175` |
+| **3** | [`03_customer_segmentation_clustering`](./03_customer_segmentation_clustering) | **Customer Segmentation & Clustering Platform** | K-Means, GMM, Agglomerative, DBSCAN, PCA 2D Manifolds, Silhouette Optimization | `8003` | `5176` |
+| **4** | [`04_associative_pattern_mining`](./04_associative_pattern_mining) | **Market Basket Associative Pattern Mining** | Apriori Candidate Pruning, FP-Growth Tree Traversal, Lift & Directional Conviction | `8004` | `5177` |
+| **5** | [`05_data_science_skills_lab`](./05_data_science_skills_lab) | **Data Science Skills Mastery Lab** | 54 Param087 & Nimrodfisher Skills, 5 Kaggle Benchmark Datasets, Dynamic Dispatcher | `8005` | `5178` |
+| **6** | [`06_anomaly_detection`](./06_anomaly_detection) | **Autonomous Anomaly Threat Intelligence** | Isolation Forest, LOF, One-Class SVM, Mahalanobis, PR-AUC Calibration for Imbalance | `8006` | `5179` |
+| **7** | [`07_automl_autogluon`](./07_automl_autogluon) | **AutoGluon Multi-Layer Stacking Platform** | 3-Level Stacking DAG, Caruana Greedy Selection, Out-of-Fold Leakage-Free Blending | `8007` | `5180` |
+| **8** | [`08_datascience_visual_mastery`](./08_datascience_visual_mastery) | **Data Science Foundations & Interactive Mastery** | Live Simulators (Naive Bayes, PR Curves, Calculus, Backprop), Chapter Quizzes | `8008` | `5181` |
+| **9** | [`09_flowforge_dag_engine`](./09_flowforge_dag_engine) | **FlowForge DAG Engine (Matt Pocock Patterns)** | Nominal Branding, Discriminated Unions, Kahn's DAG Compiler, SSE Streaming Bus | `8009` | `5182` |
+| **10** | [`10_crispdm_masters_curriculum`](./10_crispdm_masters_curriculum) | **CRISP-DM Master's Data Science Platform** | 7-Phase Census Analytics, Gradient Boosting ($R^2=0.91$), Cosine LSH ($14.8\times$ speedup) | `8010` | `5183` |
+| **11** | [`11_enterprise_ds_audit`](./11_enterprise_ds_audit) | **Enterprise Data Science Audit & Governance** | 6-Dimension Scorecard, Live Data Leakage Sandbox, Mitchell et al. Model Cards | `8011` | `5184` |
+| **12** | [`12_timeseries_forecasting`](./12_timeseries_forecasting) | **Time Series Forecasting & Anomaly Telemetry** | Multi-Horizon Fans ($h=7..60$d), 40-Lag ACF/PACF, Walk-Forward Tournament (LightGBM) | `8012` | `5185` |
+
+---
+
+## 🎯 Verbatim Reproduction Prompts Catalog
+
+All verbatim user prompts, follow-up steering directives, and architectural parameters required to reproduce each system are fully documented in:
+👉 **[PROMPTS.md](./PROMPTS.md)**
+
+---
+
+## 🛠️ Quick Start & Running Locally
+
+### Prerequisites
+* Python 3.10+ (with `fastapi`, `uvicorn`, `scikit-learn`, `pandas`, `numpy`, `torch`)
+* Node.js 18+ (with `npm`)
+
+### Starting Any Project
+```bash
+# Example: Launching Time Series Forecasting Engine
+cd 12_timeseries_forecasting/backend
+python -m uvicorn main:app --host 127.0.0.1 --port 8012
+
+# In a separate terminal
+cd 12_timeseries_forecasting/frontend
+npm install
+npm run dev # Launches Vite on http://localhost:5185/
 ```
-data_science_examples/
-├── 01_nyc_taxi_trip_prediction/             # NYC Taxi Fare & Duration ML Platform (LightGBM, XGBoost, AutoResearch Tabular)
-│   ├── ml/                                  # Spatial Feature Engineering & Training Pipelines
-│   ├── server/                              # FastAPI Microservice (Port 8000)
-│   ├── client/                              # React 18 + Vite Interactive Route Estimator (Port 5174)
-│   └── DESIGN_DOC.md                        # Full System Design & Mathematical Formulation
-│
-├── 02_nano_llm_transformer/                 # NanoLlama — Modern Transformer LLM & Chatbot from Scratch
-│   ├── core/                                # RoPE, SwiGLU, RMSNorm, KV-Cache, Subword Tokenizer
-│   ├── server/                              # FastAPI SSE Streaming Microservice (Port 8002)
-│   ├── client/                              # React 18 + Vite Quantum Neural Web App (Port 5175)
-│   └── DESIGN_DOC.md                        # Transformer Primitives & Attention Heatmap Extraction
-│
-├── 03_customer_segmentation_clustering/     # Customer Intelligence & Unsupervised Segmentation Platform
-│   ├── ml/                                  # Multi-Backbone Clustering (K-Means++, GMM, Agglomerative, DBSCAN, Spectral, 2D PCA & t-SNE)
-│   ├── server/                              # FastAPI REST Microservice (Port 8003)
-│   ├── client/                              # React 18 + Vite Manifold Explorer & Admin Dashboard (Port 5176)
-│   └── DESIGN_DOC.md                        # Persona Taxonomy, Silhouette Optimization & CRISP-DM
-│
-├── 04_associative_pattern_mining/           # Market Basket Intelligence & Associative Pattern Mining Platform
-│   ├── ml/                                  # Apriori, FP-Growth, ECLAT, 2D Association Network Graph, AutoResearch Tabular
-│   ├── server/                              # FastAPI REST Microservice (Port 8004)
-│   ├── client/                              # React 18 + Vite Basket Builder & 2D Graph Visualizer (Port 5177)
-│   └── DESIGN_DOC.md                        # High-Order Metric Formulations & CRISP-DM Report
-│
-├── 05_data_science_skills_lab/              # Data Science & Analytics Interactive Skills Mastery Lab (46 Agent Skills)
-│   ├── core/                                # Titanic, House Prices, Fraud, E-Commerce Analytics, Data Quality Profiling
-│   ├── server/                              # FastAPI REST Microservice (Port 8005)
-│   ├── client/                              # React 18 + Vite Interactive Skills Workbench & Encyclopedia (Port 5178)
-│   └── README.md                            # Comprehensive Skills Documentation
-│
-├── 06_anomaly_detection/                    # Enterprise Anomaly Detection & Threat Intelligence Platform
-│   ├── ml/                                  # Isolation Forest, Autoencoder, LOF, One-Class SVM, Robust Covariance, 2D PCA
-│   ├── server/                              # FastAPI REST Microservice (Port 8006)
-│   ├── client/                              # React 18 + Vite Threat Scorer & 2D Manifold Explorer (Port 5179)
-│   └── README.md                            # Anomaly Benchmark Documentation
-│
-├── 07_automl_autogluon/                     # AutoGluon AutoML Multi-Task Platform & Stacking DAG
-│   ├── ml/                                  # 3-Level Stacking Engine, Caruana Greedy Selection, AutoResearch Tabular
-│   ├── server/                              # FastAPI REST Microservice (Port 8007)
-│   ├── client/                              # React 18 + Vite Multi-Task Predictor & Stacking DAG (Port 5180)
-│   └── README.md                            # Multi-Task Benchmark Documentation
-│
-├── 08_datascience_visual_mastery/           # Data Science & ML Visual Mastery Foundations Textbook
-│   ├── content/                             # Naive-Bayes, Metrics & PR, Calculus & Gradients, Chain Rule & Backprop
-│   ├── server/                              # FastAPI REST Microservice (Port 8008)
-│   ├── client/                              # React 18 + Vite Interactive Textbook & Simulators (Port 5181)
-│   ├── static_gh_pages/                     # Zero-Dependency Static Build for GitHub Pages (github.io)
-│   └── README.md                            # Foundations Curriculum Documentation
-│
-├── docs/                                    # GitHub Pages (github.io) Root Directory
-│   └── index.html                           # Standalone Multi-Project Hub
-│
-└── .agents/skills/                          # Autonomous Reproduction Skills for Antigravity Agents
-    ├── nyc-taxi-autoresearch/SKILL.md
-    ├── nano-llm-transformer/SKILL.md
-    ├── customer-segmentation-clustering/SKILL.md
-    ├── associative-pattern-mining/SKILL.md
-    ├── data-science-skills-lab/SKILL.md
-    ├── anomaly-detection/SKILL.md
-    ├── automl-autogluon/SKILL.md
-    └── data-science-mastery/SKILL.md
-```
-
----
-
-## 🌟 Projects Summary & Benchmark Comparison
-
-| Project | Domain & Dataset | SOTA Champion Algorithm | Primary Metric | Kaggle SOTA Baseline | AutoResearch Gain | Live UI | Backend API | GitHub Pages |
-|---|---|---|---|---|---|---|---|---|
-| **01. NYC Taxi Trip Predictor** | Spatial-Temporal GPS ($N=10\text{k}$) | **XGBoost Regressor** | **RMSLE: 0.1531** ($R^2 = 96.97\%$) | RMSLE: 0.3680 | **+58.4% improvement** | [Port 5174](http://localhost:5174) | [Port 8000](http://127.0.0.1:8000/docs) | [github.io/01/](https://dlmastery.github.io/data_science_examples/01_nyc_taxi_predictor/) |
-| **02. NanoLlama SOTA LLM** | Conversational QA & Code | **3-Layer RoPE + SwiGLU + KV-Cache** | **Perplexity: 1.05** (Loss: 0.0531) | Transformer Baseline PPL: 16.34 | **93.6% PPL reduction** | [Port 5175](http://localhost:5175) | [Port 8002](http://127.0.0.1:8002/docs) | [github.io/02/](https://dlmastery.github.io/data_science_examples/02_nanollama_transformer/) |
-| **03. Customer Segmentation** | Retail Behavior ($N=10\text{k}$) | **K-Means++ & AutoResearch Consensus** | **Silhouette: 0.4180** (DB: 1.0193) | Top 1% SOTA: 0.3850 | **+21.0% gain** | [Port 5176](http://localhost:5176) | [Port 8003](http://127.0.0.1:8003/docs) | [github.io/03/](https://dlmastery.github.io/data_science_examples/03_customer_segmentation/) |
-| **04. Market Basket Mining** | Kaggle Instacart ($N=10\text{k}$) | **FP-Growth (Prefix Tree)** | **Mean Lift: 3.793** (Peak: 4.48x) | Top 1% SOTA Lift: 4.850 | **+7.9% lift gain** | [Port 5177](http://localhost:5177) | [Port 8004](http://127.0.0.1:8004/docs) | [github.io/04/](https://dlmastery.github.io/data_science_examples/04_market_basket_apriori/) |
-| **05. Skills Mastery Lab** | 5 Kaggle Datasets (Titanic, Housing, Fraud, SaaS) | **46 Production Agent Skills** | **Multi-Domain SOTA** | Kaggle Master Benchmarks | **100% Skill Automation** | [Port 5178](http://localhost:5178) | [Port 8005](http://127.0.0.1:8005/docs) | [github.io/05/](https://dlmastery.github.io/data_science_examples/05_data_science_skills_lab/) |
-| **06. Anomaly Detection** | Cloud Telemetry ($N=10\text{k}$, 10D) | **Consensus (IForest+Autoencoder+LOF)** | **ROC-AUC: 0.9580** (PR: 0.8760) | Top 1% SOTA: 0.9620 | **+8.25% AUC gain** | [Port 5179](http://localhost:5179) | [Port 8006](http://127.0.0.1:8006/docs) | [github.io/06/](https://dlmastery.github.io/data_science_examples/06_anomaly_detection/) |
-| **07. AutoML & AutoGluon** | Multi-Task Classification & Regression | **WeightedEnsemble_L3 (Caruana)** | **ROC-AUC: 0.9420** ($R^2 = 93.4\%$) | Top 1% SOTA: 0.9460 | **+5.94% AUC gain** | [Port 5180](http://localhost:5180) | [Port 8007](http://127.0.0.1:8007/docs) | [github.io/07/](https://dlmastery.github.io/data_science_examples/07_automl_autogluon/) |
-| **08. Visual Foundations** | 4 Core Modules (Bayes, Metrics, Calculus, Backprop) | **Interactive Visual Textbook** | **100% Concept Mastery** | Math & Stats Foundations | **Interactive Simulators** | [Port 5181](http://localhost:5181) | [Port 8008](http://127.0.0.1:8008/docs) | [github.io/08/](https://dlmastery.github.io/data_science_examples/docs/) |
-
----
-
-## 🌐 GitHub Pages (`github.io`) Deployment
-
-All projects are hosted on GitHub Pages:
-- **Master GitHub Pages Hub**: [https://dlmastery.github.io/data_science_examples/](https://dlmastery.github.io/data_science_examples/)
-- **Visual Foundations Textbook**: [https://dlmastery.github.io/data_science_examples/docs/](https://dlmastery.github.io/data_science_examples/docs/)
-
----
-
-## 🛠️ Autonomous Reproduction via Skills
-
-Each project includes an autonomous runbook in `.agents/skills/<skill_name>/SKILL.md`:
-- **NYC Taxi**: Trigger `skills/nyc-taxi-autoresearch`
-- **NanoLlama**: Trigger `skills/nano-llm-transformer`
-- **Customer Clustering**: Trigger `skills/customer-segmentation-clustering`
-- **Market Basket Mining**: Trigger `skills/associative-pattern-mining`
-- **Data Science Skills Lab**: Trigger `skills/data-science-skills-lab`
-- **Anomaly Detection**: Trigger `skills/anomaly-detection`
-- **AutoML & AutoGluon**: Trigger `skills/automl-autogluon`
-- **Visual Foundations**: Trigger `skills/data-science-mastery`
