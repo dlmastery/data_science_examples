@@ -1,56 +1,62 @@
-# NanoLlama — Modern Transformer Language Model & Chatbot from Scratch
+# ⚡ NanoLlama — Autoregressive SFT Language Model
 
-A lightweight, from-scratch modern Transformer Language Model designed to run and train seamlessly on laptop CPUs and edge GPUs, built with exact state-of-the-art primitives (**RoPE**, **SwiGLU**, **RMSNorm**, **KV-Cache**).
-
----
-
-## 🌟 Key Highlights & Features
-- 🧠 **Pure PyTorch SOTA Architecture**:
-  - **Rotary Position Embeddings (RoPE)**: Relative position encoding via 2D rotational vector geometry.
-  - **SwiGLU Gated Feed-Forward**: High-expressivity SiLU activation gating.
-  - **RMSNorm Pre-Normalization**: Fast and stable normalization without mean-centering.
-  - **Autoregressive Key-Value Cache (KV-Cache)**: Stateful $O(1)$ token decoding.
-- 💬 **Interactive Streaming Chatbot**:
-  - Server-Sent Events (SSE) token streamer with live generation telemetry (tokens/sec, TTFT).
-  - Decoding controls: Temperature, Top-P Nucleus, Top-K Filtering, Repetition Penalty, Max Tokens.
-  - Curated prompt presets (Baby Dragon Bedtime Story, Python Fibonacci, RoPE Explanation, Math Reasoning).
-- 🔬 **Multi-Head Attention Heatmap Visualizer**:
-  - Interactive 2D attention matrices across all 3 layers and 4 heads with token-to-token hover tooltips.
-- 🧩 **Tokenizer & Subword Studio**:
-  - Interactive subword visualizer with alternating color-coded tags, token IDs, and Top-5 next token probability distribution bar charts.
-- 📈 **Training Telemetry & Perplexity Dashboard**:
-  - Step-by-step training loss curve, validation perplexity progression (achieving **1.05 Perplexity**), and learning rate schedule.
-- 🧪 **100% Verified**:
-  - 6/6 Automated API tests passing.
-  - Chrome DevTools Protocol visual audit passing with 0 network failures.
+A pure PyTorch autoregressive transformer neural network built entirely from scratch with **Rotary Position Embeddings (RoPE)**, **SwiGLU gated activations**, **RMSNorm**, and **Supervised Fine-Tuning (SFT)** with live KV-Cache generation, attention heatmaps, and tokenizer inspection.
 
 ---
 
-## 🚀 Quickstart Guide
+## 📸 Comprehensive Visual Tour
 
-### 1. Requirements
-- Python 3.10+
-- PyTorch (`torch`)
-- FastAPI (`fastapi`, `uvicorn`)
-- Node.js 18+
+### 1. Interactive Chat Studio & Real-time Text Generation
+*Full-featured generative studio supporting Top-P Nucleus Sampling, Temperature, Repetition Penalty, and curated AI research prompt presets.*
+![NanoLlama Chat Studio](./screenshots/nanollama_chat_studio.png)
 
-### 2. Training the Model
+### 2. Multi-Head Self-Attention Matrix Heatmaps
+*Visualizes query-key attention distribution $A = \text{softmax}(QK^T / \sqrt{d_k})$ across multiple attention heads.*
+![NanoLlama Attention Heatmaps](./screenshots/nanollama_attention_heatmaps.png)
+
+### 3. Custom Tokenizer Studio
+*Interactive BPE token decomposition showing token IDs, byte lengths, and token type color badges.*
+![NanoLlama Tokenizer Studio](./screenshots/nanollama_tokenizer_studio.png)
+
+### 4. Loss & Perplexity Training Telemetry
+*Cross-Entropy loss tracking and Perplexity validation convergence curves across epochs.*
+![NanoLlama Training Curves](./screenshots/nanollama_training_curves.png)
+
+### 5. Neural Architecture Blueprint
+*Comprehensive structural diagram detailing the forward pass through RoPE Multi-Head Attention and SwiGLU FFN blocks.*
+![NanoLlama Architecture](./screenshots/nanollama_architecture_blueprint.png)
+
+---
+
+## 📐 Transformer Primitives Implemented
+
+1. **Rotary Position Embeddings (RoPE)**:
+   $$R_{\Theta, m}^d x_m = \begin{pmatrix} x_m^{(1)} \cos m\theta_1 - x_m^{(2)} \sin m\theta_1 \\ x_m^{(1)} \sin m\theta_1 + x_m^{(2)} \cos m\theta_1 \\ \vdots \end{pmatrix}$$
+2. **SwiGLU Activation Function**:
+   $$\text{SwiGLU}(x) = \text{Swish}(x W) \otimes (x V)$$
+3. **Root Mean Square Normalization (RMSNorm)**:
+   $$\bar{a}_i = \frac{a_i}{\text{RMS}(a)} g_i, \quad \text{RMS}(a) = \sqrt{\frac{1}{d} \sum_{i=1}^d a_i^2 + \epsilon}$$
+
+---
+
+## 🧠 Autonomous Skills Included
+
+Pre-packaged in `skills/` and `.agents/skills/`:
+* `nano-llm-transformer`: Full architectural transformer pipeline.
+* `pytorch-training-loop`: Reproducible training loop with mixed precision and gradient clipping.
+* `llm-finetuning`: SFT dataset formatting and loss optimization.
+
+---
+
+## 🚀 Quick Start
+
 ```bash
-cd core
-python train.py
-```
-
-### 3. Running the Backend Server (Port 8002)
-```bash
-cd server
+# Backend (FastAPI on Port 8002)
+cd backend
 python -m uvicorn main:app --host 127.0.0.1 --port 8002
-```
 
-### 4. Running the Frontend Web Application (Port 5175)
-```bash
-cd client
+# Frontend (Vite React on Port 5175)
+cd frontend
 npm install
-npm run dev
+npm run dev # Open http://localhost:5175/
 ```
-
-Open your browser at **`http://localhost:5175`**!

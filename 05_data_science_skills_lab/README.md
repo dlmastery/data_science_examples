@@ -1,40 +1,58 @@
-# Data Science & Analytics Interactive Skills Mastery Lab
+# 🔬 Data Science Skills Mastery Lab
 
-An interactive visual educational workbench demonstrating **46 production AI Agent Skills** from [`param087/agent-ml-skills`](https://github.com/param087/agent-ml-skills) (15 ML & MLOps skills) and [`nimrodfisher/data-analytics-skills`](https://github.com/nimrodfisher/data-analytics-skills) (31 Data Analytics skills) across 5 popular Kaggle datasets.
-
----
-
-## 🌟 Key Features
-
-1. **46-Skill Interactive Encyclopedia & Runner**:
-   - Every skill explained clearly for beginners: **Purpose & Real-World Motivation**, **Statistical / Mathematical Intuition**, **Input / Output Schemas**, **Common Beginner Pitfalls**, and **Live Execution Runner**.
-2. **Kaggle Benchmark Interactive Workbenches**:
-   - 🚢 **Titanic Disaster Survival (Classification)**: Feature engineering, pipeline DAG, ROC-AUC curve (0.7267), Confusion Matrix, and Feature Importance bar chart.
-   - 🏡 **House Prices: Advanced Regression**: Actual vs Predicted scatter plot, Log-target transform ($y \to \log(1 + y)$), R² (0.8105), RMSE, and Residuals.
-   - 💳 **Credit Card Fraud (Imbalanced Data)**: 0.17% rare target, baseline vs balanced cost-matrix comparison (Recall jumps from 54% to 96%), and **Live Decision Threshold Slider ($\tau$)**.
-   - 📈 **E-Commerce & SaaS Analytics**: 12-Month User Retention Cohort Heatmap, 5-Stage Checkout Funnel Drop-off Waterfall, and **Live A/B Testing Z-Test Calculator**.
-   - 🔍 **Automated Data Quality Audit**: 87.8 / 100 Data Quality Scorecard, duplicate row detection, null density mapping, and anomaly assertion checking.
-3. **CRISP-DM 6-Phase Publication Research Report**.
+A modular analytics execution platform providing **54 pre-installed agent skills** mapped against **5 standard Kaggle benchmark datasets** (Titanic, House Prices, Credit Card Fraud, E-Commerce Cohorts, and Data Quality Audits) with interactive skill execution and leakage avoidance guidelines.
 
 ---
 
-## 🚀 Quickstart
+## 📸 Comprehensive Visual Tour
 
-### 1. Run FastAPI Backend (Port 8005)
+### 1. 54 Skills Encyclopedia & Category Filters
+*Searchable directory of analytical workflows with input/output schemas and common pitfall warnings.*
+![Skills Catalog](./screenshots/skills_lab_catalog.png)
+
+### 2. Kaggle Titanic Survival Benchmark (Binary Classification)
+*Interactive feature exploration, missing value imputation, and classification accuracy evaluation.*
+![Titanic Benchmark](./screenshots/skills_lab_titanic.png)
+
+### 3. Kaggle House Prices Benchmark (Advanced Regression)
+*Log-transformed target regression with feature interaction terms and residual analysis.*
+![House Prices Benchmark](./screenshots/skills_lab_house_prices.png)
+
+### 4. Credit Card Fraud Benchmark (Highly Imbalanced ML)
+*PR-AUC optimization, SMOTE resampling, and decision threshold calibration on 0.17% minority class.*
+![Fraud Benchmark](./screenshots/skills_lab_fraud.png)
+
+### 5. E-Commerce Analytics Benchmark (Cohort Retention)
+*Monthly retention heatmaps, LTV/CAC ratios, and customer churn curve projections.*
+![E-Commerce Benchmark](./screenshots/skills_lab_ecommerce.png)
+
+### 6. Automated Data Quality Audit Scorecard
+*Comprehensive data quality scoring across completeness, validity, uniqueness, and consistency.*
+![Quality Audit](./screenshots/skills_lab_quality_audit.png)
+
+---
+
+## 🧠 Autonomous Skills Included
+
+Pre-packaged in `skills/` and `.agents/skills/`:
+* `exploratory-data-analysis`
+* `feature-engineering`
+* `data-cleaning`
+* `imbalanced-data`
+* `model-evaluation`
+* `data-quality-audit`
+
+---
+
+## 🚀 Quick Start
+
 ```bash
-cd server
+# Backend (FastAPI on Port 8005)
+cd backend
 python -m uvicorn main:app --host 127.0.0.1 --port 8005
-```
 
-### 2. Run React + Vite Frontend (Port 5178)
-```bash
-cd client
+# Frontend (Vite React on Port 5178)
+cd frontend
 npm install
-npm run dev
+npm run dev # Open http://localhost:5178/
 ```
-
-### 3. Run Automated Unit Tests
-```bash
-python server/test_api.py
-```
-*(8 / 8 tests pass in < 0.70s)*.

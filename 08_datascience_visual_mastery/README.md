@@ -1,60 +1,55 @@
-# Data Science & Machine Learning Visual Mastery Platform
+# 🎓 Data Science & Machine Learning Visual Foundations
 
-An interactive visual textbook and learning platform teaching foundational Data Science and Machine Learning mathematical principles across 4 comprehensive curriculum modules (**Probabilistic Classification & Bayes**, **True Model Evaluation & Threshold Dynamics**, **Differential Calculus & Gradient Optimization**, and **The Chain Rule & Backpropagation Mechanics**). Features live interactive parameter sliders, chapter-by-chapter mastery quizzes with instant explanations, data science technical interview flashcards, and static GitHub Pages (`github.io`) deployment artifacts.
-
----
-
-## 🌟 Key Features
-
-1. **Module 1: Probabilistic Classification & The Naive-Bayes Mechanism (`content/naive_bayes_module.json`)**:
-   - The combinatorial explosion of language ($10,000^{20}$ possibilities).
-   - Conditional independence factorization ($P(x_1 \dots x_n | c) = \prod P(x_i | c)$).
-   - Live Napkin Bayes Calculator (Prior base rate and word likelihood sliders with instant posterior updating).
-   - Laplace add-one smoothing ($\frac{\text{count}+1}{\text{total}+V}$) and log-space underflow protection.
-
-2. **Module 2: Model Evaluation, Confusion Matrices & Threshold Dynamics (`content/evaluation_metrics_module.json`)**:
-   - The 99% accuracy trap on class-imbalanced datasets.
-   - 2x2 Contingency Matrix ($TP, TN, FP, FN$).
-   - Precision vs Recall tradeoffs with interactive decision threshold slider ($T \in [0.1, 0.9]$).
-   - $F_1$ Harmonic Mean formulation and business cost matrix optimization.
-
-3. **Module 3: Differential Calculus, Derivatives & Gradient Descent (`content/calculus_gradients_module.json`)**:
-   - The optimization landscape in the fog.
-   - Derivative as local tangent slope and multivariable Gradient vector ($\nabla f$).
-   - Live Loss Bowl Simulator ($f(x, y) = x^2 + 3y^2$) with customizable learning rate $\eta$, demonstrating stable convergence vs explosive overshoot when $\eta > \frac{1}{3}$.
-   - 10-line vectorized NumPy loop.
-
-4. **Module 4: The Chain Rule & Backpropagation Mechanics (`content/backprop_chainrule_module.json`)**:
-   - Nested composite functions $L(y(h(w)))$.
-   - Chain rule and multivariable fan-out gradient summation.
-   - Interactive single-neuron forward activation caching ($x, z, a, L$) and backward $\delta$ error signal routing.
-   - 4-line vectorized matrix backpropagation and vanishing gradient dynamics.
-
-5. **Chapter Mastery Quizzes & Technical Interview Flashcard Deck (`content/quizzes_and_interviews.json`)**:
-   - 16 module quiz questions with instant feedback and score tracking with celebratory confetti.
-   - Technical interview flashcards with question categorization, answer reveals, and key takeaways.
-
-6. **Static GitHub Pages (`github.io`) Deployment**:
-   - Production-ready zero-dependency static build in `docs/` and `static_gh_pages/`.
+An interactive visual curriculum and textbook teaching foundational ML and Data Science concepts with real-time mathematical simulators, interactive chapter quizzes, and interview flashcards.
 
 ---
 
-## 🚀 Quickstart
+## 📸 Comprehensive Visual Tour
 
-### 1. Run FastAPI Microservice (Port 8008)
+### 1. Module 1: Probabilistic Classification & Live Napkin Bayes
+*Explains the conditional independence assumption with an interactive Spam/Ham prior and likelihood slider simulator.*
+![Probabilistic Bayes](./screenshots/mastery_probabilistic_bayes.png)
+
+### 2. Module 2: Model Evaluation, Confusion Matrices & PR Curves
+*Interactive classification threshold slider demonstrating the fundamental Trade-off between Precision and Recall.*
+![Evaluation & PR Tradeoffs](./screenshots/mastery_evaluation_pr_tradeoffs.png)
+
+### 3. Module 3: Differential Calculus, Derivatives & Gradient Descent
+*Interactive tangent slope visualizer and gradient descent step simulator.*
+![Calculus & Gradients](./screenshots/mastery_calculus_gradients.png)
+
+### 4. Module 4: Chain Rule & Backpropagation Mechanics
+*Forward and backward pass step simulator through computational graphs.*
+![Chain Rule Backprop](./screenshots/mastery_chain_rule_backprop.png)
+
+### 5. Interactive Master's Chapter Quiz Modal
+*Multi-question conceptual quizzes reinforcing each module with immediate explanation feedback.*
+![Chapter Quiz](./screenshots/mastery_chapter_quiz.png)
+
+### 6. Interview Prep Flashcard Deck
+*High-yield data science interview flashcards covering core theoretical concepts.*
+![Interview Flashcards](./screenshots/mastery_interview_deck.png)
+
+---
+
+## 🧠 Autonomous Skills Included
+
+Pre-packaged in `skills/` and `.agents/skills/`:
+* `data-science-mastery`: Foundational curriculum builder.
+* `visualization-builder`: Dynamic visual math simulator components.
+* `reproducible-ml`: Deterministic mathematical proof implementations.
+
+---
+
+## 🚀 Quick Start
+
 ```bash
-cd server
+# Backend (FastAPI on Port 8008)
+cd backend
 python -m uvicorn main:app --host 127.0.0.1 --port 8008
-```
 
-### 2. Run React 18 + Vite Interactive Textbook (Port 5181)
-```bash
-cd client
+# Frontend (Vite React on Port 5181)
+cd frontend
 npm install
-npm run dev
-```
-
-### 3. Run Automated Tests
-```bash
-python server/test_api.py
+npm run dev # Open http://localhost:5181/
 ```

@@ -1,64 +1,55 @@
-# 🚕 NYC Taxi ML Intelligence — End-to-End Data Science Project
+# 🚕 NYC Taxi Trip Duration & Fare Prediction Platform
 
-A production-grade, state-of-the-art Machine Learning system for NYC Taxi Trip Duration & Fare Estimation with real-time inference, interactive spatial map simulation, and a transparent Data Science Admin lifecycle dashboard.
-
----
-
-## 🌟 Key Features
-
-### 1. State-of-the-Art ML Pipeline
-- **Dataset**: Modeled on Kaggle's NYC Taxi Trip Duration competition.
-- **Feature Engineering**: 20 spatial & temporal features including Haversine & Manhattan distances, bearing, transit hub proximity (JFK, LGA, EWR, Times Sq, Wall St), rush hour & night traffic factors.
-- **Algorithms**: Tuned XGBoost gradient boosting optimizing for Root Mean Squared Logarithmic Error (RMSLE).
-- **Benchmark Performance**:
-  - SOTA XGBoost: **RMSLE = 0.1479**, **R² = 0.9679** (96.8% variance explained).
-
-### 2. Interactive Rider & Fare Estimator UI
-- **Interactive NYC Map Canvas**: Visualizes route trajectories across Manhattan, Brooklyn, Queens, Bronx, and airports with animated cruising taxi!
-- **Landmark Presets**: Quick route selection (Times Square, JFK Airport, LGA, Central Park, Wall Street, Brooklyn Bridge).
-- **Fare Breakdown**: Official NYC taxi rate formula (base fare, distance rate, congestion fee, peak rush hour surge, airport fee).
-- **Confidence Intervals**: 95% upper and lower duration estimates.
-
-### 3. Data Science & ML Admin Dashboard
-- **Model Experiment Matrix**: Benchmark comparison between Ridge Baseline, Random Forest, and SOTA XGBoost.
-- **Feature Importance Chart**: Ranked predictive power across engineered features.
-- **Validation Loss Curves**: Loss vs boosting iterations plot.
-- **Dataset Explorer**: 24-hour pickup density and duration frequency distributions.
-- **Live Retraining Studio**: Interactive hyperparameter tuner to launch live model retraining with progress feedback.
+An end-to-end CRISP-DM spatial machine learning system solving the **Kaggle NYC Taxi Trip Duration Challenge** with spatial feature engineering, XGBoost duration regression ($R^2 = 96.97\%$), interactive map route trajectory simulation, and Karpathy-style AutoResearch hill-climbing optimization.
 
 ---
 
-## 🚀 Quickstart
+## 📸 Comprehensive Visual Tour
 
-### 1. Run Backend & Frontend Simultaneously
-From `secondtest-nyc`:
-```bash
-npm run dev
-```
+### 1. Interactive Ride Estimator & Route Map Simulator
+*Select NYC landmarks, view live Manhattan distance, Great-Circle Haversine calculations, predicted travel time, and fare breakdown with rush hour surge detection.*
+![NYC Estimator View](./screenshots/nyc_estimator_view.png)
 
-Or run each independently:
+### 2. AutoResearch & SOTA Benchmark Dashboard
+*Compares production XGBoost against Kaggle Grandmaster SOTA (Top 1% RMSLE `0.3680`), showing tabular hill-climbing convergence curves and feature importance.*
+![NYC Admin AutoResearch](./screenshots/nyc_admin_autoresearch.png)
+
+### 3. CRISP-DM 6-Phase Research Report
+*Exhaustive research dossier covering Business Understanding, Data Preparation, Modeling, and Deployment considerations.*
+![NYC CRISP-DM Report](./screenshots/nyc_crisp_dm_report.png)
+
+---
+
+## 📐 Mathematical Formulations
+
+1. **Haversine Great-Circle Distance**:
+   $$d = 2R \arcsin\left(\sqrt{\sin^2\left(\frac{\Delta \phi}{2}\right) + \cos(\phi_1)\cos(\phi_2)\sin^2\left(\frac{\Delta \lambda}{2}\right)}\right)$$
+2. **Manhattan Grid Distance**:
+   $$d_{\text{manhattan}} = R \cdot (|\Delta \phi| + |\Delta \lambda| \cdot \cos(\bar{\phi}))$$
+3. **Compass Bearing Formula**:
+   $$\theta = \text{atan2}\left(\sin(\Delta \lambda)\cos(\phi_2), \cos(\phi_1)\sin(\phi_2) - \sin(\phi_1)\cos(\phi_2)\cos(\Delta \lambda)\right)$$
+
+---
+
+## 🧠 Autonomous Skills Included
+
+Pre-packaged in `skills/` and `.agents/skills/`:
+* `nyc-taxi-autoresearch`: Automated tabular hill-climbing search loop.
+* `exploratory-data-analysis`: Spatial distribution analysis and target leakage checks.
+* `feature-engineering`: Geospatial cyclical timestamp and distance transforms.
+* `pandas-patterns`: Vectorized NumPy/Pandas data pipelines.
+
+---
+
+## 🚀 Quick Start
+
 ```bash
-# Terminal 1: Python FastAPI Server (Port 8000)
+# Backend (FastAPI on Port 8000)
 cd server
 python -m uvicorn main:app --host 127.0.0.1 --port 8000
 
-# Terminal 2: React Vite Client (Port 5174)
+# Frontend (Vite React on Port 5174)
 cd client
-npm run dev
-```
-
-Open [http://localhost:5174](http://localhost:5174) in your browser.
-
----
-
-## 🧪 Testing
-
-Run all automated API tests:
-```bash
-python server/test_api.py
-```
-
-Run Chrome DevTools Protocol visual audit:
-```bash
-node devtools_audit.mjs
+npm install
+npm run dev # Open http://localhost:5174/
 ```

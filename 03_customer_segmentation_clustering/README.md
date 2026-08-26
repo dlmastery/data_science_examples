@@ -1,55 +1,52 @@
-# Customer Intelligence & Unsupervised Segmentation Platform
+# 🎯 Customer Personality Intelligence & Clustering Platform
 
-An enterprise-grade Unsupervised Machine Learning & Customer Segmentation platform based on the popular Kaggle Customer Personality / Retail dataset.
-
----
-
-## 🌟 Key Features
-- 🏛️ **Multi-Backbone Clustering Tournament**:
-  - **K-Means++** (Lloyd's algorithm)
-  - **Gaussian Mixture Models (GMM)** (Soft EM clustering)
-  - **Hierarchical Agglomerative Clustering** (Ward linkage)
-  - **DBSCAN** (Density spatial clustering with noise detection)
-  - **Spectral Clustering** (Graph Laplacian manifold clustering)
-- 🗺️ **2D PCA & t-SNE Manifold Projections**:
-  - Interactive SVG scatter canvas with 69.6% explained variance tracking.
-- ⛰️ **AutoResearch Tabular Hill-Climbing Engine**:
-  - 4-Phase autonomous optimization (Backbone Battle, Feature Evolution, Hyperparameter Tuning, Consensus Ensembling) with AST code diffs and step click-through inspector modal.
-- 📄 **CRISP-DM Publication Research Report**:
-  - 6-Phase interactive research report modal accessible directly in the UI.
-- 🛍️ **Real-Time Customer Persona Classifier**:
-  - Instant cluster assignment, confidence calculation, and tailored promotional blueprint.
-- 🧪 **100% Verified**:
-  - 7/7 automated API tests passed.
-  - Chrome DevTools Protocol visual audit passing with 0 network errors.
+An unsupervised learning and behavioral intelligence platform analyzing the **Kaggle Customer Personality Dataset ($N=10,000$)** with K-Means & GMM silhouette optimization ($s=0.4180$, $+21.0\%$ gain over baseline), 2D PCA & t-SNE projections, dynamic radar charts, and real-time persona inference.
 
 ---
 
-## 🚀 Quickstart Guide
+## 📸 Comprehensive Visual Tour
 
-### 1. Requirements
-- Python 3.10+
-- `scikit-learn`, `pandas`, `numpy`, `fastapi`, `uvicorn`
-- Node.js 18+
+### 1. Customer Persona Explorer & 2D PCA Manifold
+*Interactive 5-cluster persona cards (VIP Champions, Prudent Affluents, Young Trendsetters, Bargain Hunters, Mainstream Loyalists) with interactive PCA/t-SNE scatter projections and live segment classifier.*
+![Clustering Explorer](./screenshots/clustering_explorer.png)
 
-### 2. Training Models & Running AutoResearch
+### 2. AutoResearch Silhouette Score Hill-Climbing Leaderboard
+*Automated iterative optimization testing distance metrics, PCA pre-reduction, and scaling transformers to maximize cluster separation.*
+![Clustering AutoResearch](./screenshots/clustering_autoresearch.png)
+
+### 3. CRISP-DM Unsupervised Analytics Report
+*Detailed methodology documentation explaining cluster stability, Davies-Bouldin index, and Calinski-Harabasz metrics.*
+![Clustering CRISP-DM](./screenshots/clustering_crisp_dm.png)
+
+---
+
+## 📐 Mathematical Metrics
+
+1. **Silhouette Coefficient**:
+   $$s(i) = \frac{b(i) - a(i)}{\max(a(i), b(i))}$$
+2. **Davies-Bouldin Index**:
+   $$DB = \frac{1}{k} \sum_{i=1}^k \max_{j \neq i} \left( \frac{\sigma_i + \sigma_j}{d(c_i, c_j)} \right)$$
+
+---
+
+## 🧠 Autonomous Skills Included
+
+Pre-packaged in `skills/` and `.agents/skills/`:
+* `customer-segmentation-clustering`: Unsupervised clustering optimization pipeline.
+* `segmentation-analysis`: Persona behavioral profiling.
+* `sklearn-pipelines`: Leakage-safe scaling and dimensionality reduction.
+
+---
+
+## 🚀 Quick Start
+
 ```bash
-cd ml
-python train.py
-python autoresearch_clustering.py
-```
-
-### 3. Running the Backend Server (Port 8003)
-```bash
-cd server
+# Backend (FastAPI on Port 8003)
+cd backend
 python -m uvicorn main:app --host 127.0.0.1 --port 8003
-```
 
-### 4. Running the Frontend Web Application (Port 5176)
-```bash
-cd client
+# Frontend (Vite React on Port 5176)
+cd frontend
 npm install
-npm run dev
+npm run dev # Open http://localhost:5176/
 ```
-
-Open your browser at **`http://localhost:5176`**!

@@ -1,52 +1,51 @@
-# AutoGluon AutoML Multi-Task Platform & Stacking DAG
+# 🤖 AutoGluon Multi-Layer Stacking & AutoML Tournament Platform
 
-An enterprise-grade AutoML platform illustrating state-of-the-art **AutoGluon Multi-Layer Stacking Ensemble** architectures across canonical Kaggle data science tasks (**Tabular Classification** and **Tabular Regression**). Features multi-backbone learners (**LightGBM**, **CatBoost**, **XGBoost**, **Random Forest**, **Extra Trees**, **NeuralNet FastAI / Tabular MLP**, and **Level 2/3 Weighted Ensembles**), autonomous **AutoResearch Tabular Hill-Climbing** (+5.94% ROC-AUC gain), an interactive 3-Level Stacking DAG SVG visualizer, real-time multi-task inference, Kaggle Grandmaster SOTA baseline comparisons, a 6-phase publication CRISP-DM research report, and full Git integration.
-
----
-
-## 🌟 Key Features
-
-1. **AutoGluon Multi-Layer Stacking Architecture (`ml/autogluon_stacking.py`)**:
-   - **Level 1 Base Learners**: LightGBM, CatBoost, XGBoost, Random Forest, Extra Trees, NeuralNet FastAI with 5-fold cross-validation.
-   - **Level 2 Stacking**: Concatenates Level 1 Out-of-Fold (OOF) cross-validation predictions with raw features:
-     $$X_{\text{Level 2}} = [X_{\text{raw}}, \hat{y}_{\text{OOF}}^{(1)}, \hat{y}_{\text{OOF}}^{(2)}, \dots, \hat{y}_{\text{OOF}}^{(K)}]$$
-   - **Level 3 Meta-Learner (Caruana Greedy Forward Selection)**:
-     - Iteratively selects models $M$ with non-negative weights $w_j$ to maximize the target validation metric:
-       $$w^* = \operatorname{argmax}_w \text{Metric}\left(\sum_{j=1}^M w_j \hat{y}_j\right), \quad \sum w_j = 1$$
-   - **Kaggle Grandmaster SOTA Baseline Comparison**: Hand-tuned 20-model ensemble (Classification ROC-AUC: **0.9460**, Regression R²: **0.9380**).
-
-2. **AutoResearch Tabular Hill-Climbing (`ml/autoresearch_automl.py`)**:
-   - 4-Phase autonomous search loop (Base Learner Tournament, Stacking Activation, Caruana Weight Tuning, Latency/Feature Pruning) driving classification ROC-AUC from $0.8920 \to 0.9450$ (**+5.94% gain**).
-   - Step click-through telemetry tracking with AST code diffs, parameter diffs, and agent reflections.
-
-3. **Interactive Multi-Task Web Platform (`client/` on Port 5180)**:
-   - **Multi-Task Predictor**: Real-time slider simulator switching between Customer Churn (Classification) and Diamond Valuation (Regression).
-   - **3-Level Stacking DAG SVG Visualizer**: Interactive architectural graph displaying Base Learners $\to$ Level 2 Stacker $\to$ Level 3 Caruana ensemble.
-   - **Data Science Admin Console**: AutoGluon Leaderboard with preset filter buttons (`best_quality`, `high_quality`, `fast_training`), AutoResearch trajectory chart with **Step Click-Through Inspector Modal**, and Permutation/Gini feature importance charts.
-   - **CRISP-DM 6-Phase Publication Research Report Modal**.
-   - **Online Presets Studio Modal** with celebratory confetti.
-
-4. **Production FastAPI Microservice (`server/` on Port 8007)**:
-   - 8 / 8 automated unit tests passing (100% pass rate).
+An enterprise automated machine learning platform orchestrating a **3-Level Stacking DAG** with **Caruana Greedy Forward Selection** on multi-task Kaggle benchmarks (Customer Churn Classification & Diamond Valuation Regression).
 
 ---
 
-## 🚀 Quickstart
+## 📸 Comprehensive Visual Tour
 
-### 1. Run FastAPI Backend (Port 8007)
+### 1. Multi-Task Predictor & Real-time Inference
+*Interactive tabular feature scoring with multi-layer prediction stacking breakdown across Level 1 base models, Level 2 LightGBM stack, and Level 3 Caruana weighted ensemble.*
+![AutoML Predictor](./screenshots/automl_predictor.png)
+
+### 2. 3-Level Stacking DAG Architecture
+*Visual DAG displaying Out-of-Fold (OOF) feature concatenation and hierarchical meta-model routing.*
+![AutoML Stacking DAG](./screenshots/automl_stacking_dag.png)
+
+### 3. Model Tournament Leaderboard & SOTA Comparison
+*Ranks LightGBM, CatBoost, XGBoost, Neural Net Torch, and WeightedEnsemble_L3 by validation score and latency.*
+![AutoML Leaderboard](./screenshots/automl_leaderboard.png)
+
+### 4. Permutation Feature Importance
+*Calculates empirical drop in validation score when features are shuffled: $I(f) = \text{Score}_{\text{base}} - \text{Score}_{\text{permuted}}$.*
+![AutoML Feature Importance](./screenshots/automl_feature_importance.png)
+
+### 5. AutoResearch Iterative Ensemble Hill-Climbing
+*Automated tournament optimization improving ensembling weights and stacking levels.*
+![AutoML AutoResearch](./screenshots/automl_autoresearch.png)
+
+---
+
+## 🧠 Autonomous Skills Included
+
+Pre-packaged in `skills/` and `.agents/skills/`:
+* `automl-autogluon`: Multi-layer stacking DAG ensembling.
+* `hyperparameter-tuning`: Leakage-safe Bayesian & Optuna search inside CV.
+* `experiment-tracking`: Model leaderboard and metric logging.
+
+---
+
+## 🚀 Quick Start
+
 ```bash
-cd server
+# Backend (FastAPI on Port 8007)
+cd backend
 python -m uvicorn main:app --host 127.0.0.1 --port 8007
-```
 
-### 2. Run React 18 + Vite Frontend (Port 5180)
-```bash
-cd client
+# Frontend (Vite React on Port 5180)
+cd frontend
 npm install
-npm run dev
-```
-
-### 3. Run Automated Tests
-```bash
-python server/test_api.py
+npm run dev # Open http://localhost:5180/
 ```
