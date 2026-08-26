@@ -189,3 +189,12 @@ did you publish all the artifacts to my github dlmastery in right project - it s
 checkin all the artifacts in github
 ```
 *Repository Target*: **`https://github.com/dlmastery/data_science_examples`** (Branch: `main`).
+
+---
+
+### 6. Project 13: Full Enterprise CRISP-DM Platform & Matt Pocock TypeScript Architecture
+```text
+/teamwork-preview implement a new project with following crisp-dm methodology and engaging all the data science skills i have installed and engaging aprpopriate matt-pockock skills - pick a data set like nyc taxi data set. this should be done with extreme transparency of the report in website for data science auditors including code auditors of what has happened in data science side and code side as well as clean illustration of important code snippets through out the project. it should also do explainable ai and eda dashboards - all in website admin link. the crisp dm report should be a paper size of ten pages in depth explaining each step properly. the data analysis should include clustering visualization and all stages of data . the modeling should include auto research of various techniques and within each technique very detailed ablation and hyper parameter - everythign must be done as per text book style discipline  - stunning website for inference like before - include load test and inference rest apis - include full mlops demonstrated. prepare a preopr todo list for this very largish project and meticulously knock off each step with proper verifier. have a detailed data science expert auditor step for each to ensure eveyrthing is proeprly audited for compliance and corrected if needed and done as per the book - this is a demonstration of how to follow strict principled data science process.
+```
+* **Execution**: Full 6-phase CRISP-DM lifecycle on high-dimensional NYC TLC Mobility dataset, 10-page in-depth paper dossier, spatial density clustering, AutoResearch multi-model tournament, TreeSHAP force plots, code auditor workbench, live inference on port 5186 & FastAPI backend on port 8013.
+

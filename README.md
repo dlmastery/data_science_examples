@@ -21,6 +21,7 @@ A comprehensive, production-grade portfolio of **13 Full-Stack Data Science, Mac
 | **10** | [**CRISP-DM Master's Platform**](./10_crispdm_masters_curriculum) | 7-Phase Census Analytics & Cosine LSH | `8010` | `5183` | ![CRISP-DM](./docs/screenshots/crispdm_phase1_eda.png) |
 | **11** | [**Enterprise DS Audit**](./11_enterprise_ds_audit) | 6-Dimension Quality & Leakage Scorecard | `8011` | `5184` | ![DS Audit](./docs/screenshots/ds_audit_scorecard.png) |
 | **12** | [**TimePulse Forecasting**](./12_timeseries_forecasting) | Multi-Horizon Forecast Fans & 40-Lag ACF/PACF | `8012` | `5185` | ![Time Series](./docs/screenshots/timeseries_forecast_studio.png) |
+| **13** | [**NYC TLC Mobility Platform**](./13_crispdm_nyc_taxi_audit_platform) | Enterprise CRISP-DM Standard & Matt Pocock TS | `8013` | `5186` | ![NYC CRISP-DM](./artifacts/nyc_crispdm_estimator.png) |
 
 ---
 
