@@ -23,10 +23,10 @@ A comprehensive, production-grade portfolio of **12 Data Science, Machine Learni
 
 ---
 
-## 🎯 Verbatim Reproduction Prompt Catalog
+## 🎯 Verbatim Reproduction Prompt Catalog & Agent Skills
 
-Every prompt used to generate, iterate, and verify these applications is cataloged in:
-👉 **[PROMPTS.md](./PROMPTS.md)**
+* **Prompt Catalog**: Every prompt used to generate, iterate, and verify these applications is cataloged in 👉 **[PROMPTS.md](./PROMPTS.md)**
+* **AI Agent Skills**: 54+ autonomous agent skills packaged inside `.agents/skills/` to replicate, train, and test each system are documented in 👉 **[SKILLS.md](./SKILLS.md)**
 
 ---
 
