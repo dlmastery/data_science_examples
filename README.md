@@ -32,11 +32,18 @@ data_science_examples/
 │   ├── client/                              # React 18 + Vite Basket Builder & 2D Graph Visualizer (Port 5177)
 │   └── DESIGN_DOC.md                        # High-Order Metric Formulations & CRISP-DM Report
 │
+├── 05_data_science_skills_lab/              # Data Science & Analytics Interactive Skills Mastery Lab (46 Agent Skills)
+│   ├── core/                                # Titanic, House Prices, Fraud, E-Commerce Analytics, Data Quality Profiling
+│   ├── server/                              # FastAPI REST Microservice (Port 8005)
+│   ├── client/                              # React 18 + Vite Interactive Skills Workbench & Encyclopedia (Port 5178)
+│   └── README.md                            # Comprehensive Skills Documentation
+│
 └── .agents/skills/                          # Autonomous Reproduction Skills for Antigravity Agents
     ├── nyc-taxi-autoresearch/SKILL.md
     ├── nano-llm-transformer/SKILL.md
     ├── customer-segmentation-clustering/SKILL.md
-    └── associative-pattern-mining/SKILL.md
+    ├── associative-pattern-mining/SKILL.md
+    └── data-science-skills-lab/SKILL.md
 ```
 
 ---
@@ -49,6 +56,7 @@ data_science_examples/
 | **02. NanoLlama SOTA LLM** | Conversational QA & Code | **3-Layer RoPE + SwiGLU + KV-Cache** | **Perplexity: 1.05** (Loss: 0.0531) | Transformer Baseline PPL: 16.34 | **93.6% PPL reduction** | [Port 5175](http://localhost:5175) | [Port 8002](http://127.0.0.1:8002/docs) |
 | **03. Customer Segmentation** | Retail Behavior ($N=10\text{k}$) | **K-Means++ & AutoResearch Consensus** | **Silhouette: 0.4180** (DB: 1.0193) | Top 1% SOTA: 0.3850 | **+21.0% gain** | [Port 5176](http://localhost:5176) | [Port 8003](http://127.0.0.1:8003/docs) |
 | **04. Market Basket Mining** | Kaggle Instacart ($N=10\text{k}$) | **FP-Growth (Prefix Tree)** | **Mean Lift: 3.793** (Peak: 4.48x) | Top 1% SOTA Lift: 4.850 | **+7.9% lift gain** | [Port 5177](http://localhost:5177) | [Port 8004](http://127.0.0.1:8004/docs) |
+| **05. Skills Mastery Lab** | 5 Kaggle Datasets (Titanic, Housing, Fraud, SaaS) | **46 Production Agent Skills** | **Multi-Domain SOTA** | Kaggle Master Benchmarks | **100% Skill Automation** | [Port 5178](http://localhost:5178) | [Port 8005](http://127.0.0.1:8005/docs) |
 
 ---
 
@@ -59,3 +67,4 @@ Each project includes an autonomous runbook in `.agents/skills/<skill_name>/SKIL
 - **NanoLlama**: Trigger `skills/nano-llm-transformer`
 - **Customer Clustering**: Trigger `skills/customer-segmentation-clustering`
 - **Market Basket Mining**: Trigger `skills/associative-pattern-mining`
+- **Data Science Skills Lab**: Trigger `skills/data-science-skills-lab`
