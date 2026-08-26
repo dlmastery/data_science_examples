@@ -147,7 +147,7 @@ export const EdaDashboard: React.FC = () => {
       {edaData?.correlation_analysis && (
         <div className="glass-card p-6 rounded-2xl border border-slate-800 space-y-4">
           <h3 className="text-sm font-bold uppercase tracking-wider text-slate-200">
-            Pearson Correlation Matrix ($r_{xy}$)
+            Pearson Correlation Matrix (r)
           </h3>
           <div className="overflow-x-auto">
             <div className="min-w-[600px] space-y-1">

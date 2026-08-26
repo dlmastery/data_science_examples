@@ -55,6 +55,44 @@ $$\text{PSI} = \sum_{k=1}^{K} \left( P_k - B_k \right) \ln\left( \frac{P_k}{B_k}
 
 ---
 
+## 📸 End-to-End Browser Testing & Visual UI Tour
+
+Every single view and administrative dashboard was verified via end-to-end headless browser automation (`scripts/browser_test_suite.py`):
+
+### 1. Live Multi-Task Fare Inference Estimator
+![Trip Estimator](./docs/screenshots/browser_test_01_trip_estimator.png)
+*Interactive route selection with WGS84 GPS sliders, rate codes, dynamic surge multipliers, tip propensity, carbon footprint, and local TreeSHAP waterfall force table.*
+
+### 2. 10-Page Academic Standard CRISP-DM Research Dossier
+![CRISP-DM Paper](./docs/screenshots/browser_test_02_crisp_dm_paper.png)
+*10-page in-depth research paper with formal LaTeX equations, empirical tables, and printable pagination.*
+
+### 3. Exploratory Data Analysis & 6-Dimension Quality Scorecard
+![EDA Scorecard](./docs/screenshots/browser_test_03_eda_scorecard.png)
+*100% completeness audit, duplicate detection, parametric distributions, and Pearson correlation heatmap.*
+
+### 4. Geospatial Mobility & Spatial Density Clustering Map
+![Spatial Clustering](./docs/screenshots/browser_test_04_spatial_clustering.png)
+*Interactive SVG metropolitan map displaying 6 mobility centroids across Manhattan, Brooklyn, Queens, JFK, and LGA with silhouette scoring.*
+
+### 5. AutoResearch Multi-Model Tournament, Ablation Matrix & Optuna HPO
+![AutoResearch HPO](./docs/screenshots/browser_test_05_autoresearch_hpo.png)
+*5-fold CV tournament leaderboard across 7 backbones, 5-stage feature ablation matrix, and 30-trial Optuna Bayesian hyperparameter optimization curve.*
+
+### 6. TreeSHAP Global Feature Importance & Peer Review QA Checklist
+![TreeSHAP QA](./docs/screenshots/browser_test_06_shap_qa.png)
+*Exact marginal Shapley feature attribution bars, Partial Dependence Plots (PDP), and 4-tier expert peer review compliance checklist.*
+
+### 7. Code Auditor Workbench
+![Code Auditor](./docs/screenshots/browser_test_07_code_auditor.png)
+*Auditable syntax-highlighted code snippets with architectural pointers for data science and code auditors.*
+
+### 8. MLOps Population Stability Index (PSI) Drift Monitor & Concurrency Load Tester
+![MLOps Load Test](./docs/screenshots/browser_test_08_mlops_load_test.png)
+*Real-time PSI drift monitoring and live concurrency stress testing executing $>60,000$ requests/sec with $p95 < 3.8$ ms.*
+
+---
+
 ## ⚡ Live Ports & Local Execution
 
 * **FastAPI Backend Microservice**: `http://127.0.0.1:8013`
@@ -70,3 +108,4 @@ cd client
 npm install
 npm run dev
 ```
+
