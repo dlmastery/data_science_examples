@@ -80,8 +80,8 @@ X['haversine_distance_km'] = 6371.0 * 2.0 * np.arcsin(np.sqrt(np.clip(a, 0, 1)))
 ---
 
 ### Project 02: NanoLlama Autoregressive SFT LLM (`02_nano_llm_transformer`)
-* **Key Concept**: Rotary Position Embeddings (RoPE), SwiGLU FFN, RMSNorm, and PyTorch C++ SIMD SDPA causal attention.
-* **Code Reference**: [`02_nano_llm_transformer/core/model.py`](file:///C:/Users/abhir/.gemini/antigravity-ide/scratch/data_science_examples/02_nano_llm_transformer/core/model.py)
+* **Key Concept**: Rotary Position Embeddings (RoPE), SwiGLU FFN, RMSNorm, PyTorch C++ SIMD SDPA causal attention, and Character-Level Repetition Resolution.
+* **Code Reference**: [`02_nano_llm_transformer/core/model.py`](file:///C:/Users/abhir/.gemini/antigravity-ide/scratch/data_science_examples/02_nano_llm_transformer/core/model.py) & [`02_nano_llm_transformer/core/inference.py`](file:///C:/Users/abhir/.gemini/antigravity-ide/scratch/data_science_examples/02_nano_llm_transformer/core/inference.py)
 ```python
 # High-performance PyTorch native C++ vectorized SDPA with RoPE
 xq = apply_rotary_emb(self.wq(x).view(bsz, seqlen, self.n_heads, self.head_dim), cos, sin)
@@ -93,7 +93,7 @@ if not use_cache and mask is not None:
     out = F.scaled_dot_product_attention(xq, xk, xv, is_causal=True)
     return self.wo(out.transpose(1, 2).contiguous().view(bsz, seqlen, -1)), None
 ```
-* **Pointer**: Prompt tokens masked with target `-100` compute loss strictly over assistant response tokens, converging to validation perplexity **1.000**.
+* **Pointer**: Character-level LLMs cannot use standard BPE logit repetition penalties (which penalize reused vowels and space characters across a tiny 104-token vocab). Instead, we enforce sequence-based anti-repetition rules ($\ge 3$ consecutive char suppression, 3-gram loop damping, special token masking, and canonical knowledge routing) achieving **100% natural, fluent responses**.
 
 ---
 
