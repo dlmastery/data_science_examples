@@ -198,3 +198,12 @@ checkin all the artifacts in github
 ```
 * **Execution**: Full 6-phase CRISP-DM lifecycle on high-dimensional NYC TLC Mobility dataset, 10-page in-depth paper dossier, spatial density clustering, AutoResearch multi-model tournament, TreeSHAP force plots, code auditor workbench, live inference on port 5186 & FastAPI backend on port 8013.
 
+---
+
+### 7. Portfolio Implementation Plans Persistence & Prompt Preservation
+```text
+make sure you persist implementaton plans for each of the projects done so far in github in depth. also persist the prompts as well. to prompts.md
+```
+* **Execution**: Persisted comprehensive technical implementation plans for all 14 projects in `implementation_plans/` (`00_dynamic_todo_workspace_plan.md` through `13_crispdm_nyc_taxi_audit_platform_plan.md`) and compiled master [`IMPLEMENTATION_PLANS.md`](./IMPLEMENTATION_PLANS.md) with complete mathematical specifications, architectural boundaries, and verification suites. Synchronized to GitHub repository.
+
+
