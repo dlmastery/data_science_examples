@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Activity, Sliders, Calendar, TrendingUp, AlertTriangle, Zap, ShieldCheck } from 'lucide-react';
+import { Activity, Calendar } from 'lucide-react';
 import { TimeSeriesRecord, ForecastResponse } from '../types';
 
 export const ForecastStudio: React.FC = () => {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Binary, AlertTriangle, ShieldAlert, CheckCircle2, Sliders } from 'lucide-react';
+import { Binary, AlertTriangle, CheckCircle2 } from 'lucide-react';
 import { RecordItem } from '../types';
 
 export const Phase3Outliers: React.FC = () => {

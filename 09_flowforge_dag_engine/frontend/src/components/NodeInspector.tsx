@@ -1,7 +1,7 @@
 import React from 'react';
 import { WorkflowNode, NodeConfig } from '../types/domain';
 import { assertNever } from '../utils/assertNever';
-import { ShieldCheck, Sliders, CheckCircle2, Clock, Terminal, AlertCircle } from 'lucide-react';
+import { ShieldCheck, Sliders, Terminal } from 'lucide-react';
 
 interface NodeInspectorProps {
   node: WorkflowNode | null;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Database, FileText, BarChart2, CheckCircle2, TrendingUp, Sparkles, Filter } from 'lucide-react';
+import { Database, FileText, TrendingUp } from 'lucide-react';
 import { RecordItem } from '../types';
 
 export const Phase1Understanding: React.FC = () => {
@@ -80,7 +80,7 @@ export const Phase1Understanding: React.FC = () => {
           <div>
             <h3 className="text-sm font-bold text-white flex items-center gap-2">
               <TrendingUp className="w-4 h-4 text-cyan-400" />
-              Multivariate Feature Correlation Matrix ($r_{xy}$)
+              Multivariate Feature Correlation Matrix (Pearson r)
             </h3>
             <p className="text-xs text-slate-400 mt-0.5">
               Pearson correlation coefficients measuring linear pairwise associations.

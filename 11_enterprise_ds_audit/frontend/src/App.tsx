@@ -53,8 +53,8 @@ export const App: React.FC = () => {
 
         {activeTab === 'sandbox' && <LeakageSandbox />}
 
-        {activeTab === 'dossier' && summary && (
-          <FullAuditDossier summary={summary} projects={projects} />
+        {activeTab === 'dossier' && (
+          <FullAuditDossier projects={projects} />
         )}
       </main>
 

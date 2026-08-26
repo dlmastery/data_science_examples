@@ -1,5 +1,5 @@
 import React from 'react';
-import { Award, BookOpen, CheckCircle2, FileText, Layers, TrendingUp, ShieldCheck } from 'lucide-react';
+import { Award } from 'lucide-react';
 
 export const Phase7Synthesis: React.FC = () => {
   return (

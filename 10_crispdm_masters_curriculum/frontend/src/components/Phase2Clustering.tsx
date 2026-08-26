@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Compass, Sliders, Users, BarChart3, Sparkles } from 'lucide-react';
+import { Compass, Users } from 'lucide-react';
 import { ClusterPersona } from '../types';
 
 export const Phase2Clustering: React.FC = () => {
@@ -14,20 +14,14 @@ export const Phase2Clustering: React.FC = () => {
     personas: ClusterPersona[];
     points_2d: any[];
   } | null>(null);
-  const [loading, setLoading] = useState<boolean>(false);
 
   const fetchClustering = () => {
-    setLoading(true);
     fetch(`http://127.0.0.1:8010/api/clustering/run?algorithm=${algorithm}&k=${k}`)
       .then((res) => res.json())
       .then((d) => {
         setResult(d);
-        setLoading(false);
       })
-      .catch((err) => {
-        console.error(err);
-        setLoading(false);
-      });
+      .catch((err) => console.error(err));
   };
 
   useEffect(() => {

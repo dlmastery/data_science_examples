@@ -1,14 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   WorkflowDAG,
-  WorkflowNode,
   NodeId,
   EngineState,
   LogEntry,
   DAGMetrics,
   makeWorkflowId,
   makeNodeId,
-  makeRunId,
 } from './types/domain';
 import { transition } from './machines/workflowMachine';
 import { Header } from './components/Header';
@@ -17,7 +15,7 @@ import { DagCanvas } from './components/DagCanvas';
 import { NodeInspector } from './components/NodeInspector';
 import { ExecutionTerminal } from './components/ExecutionTerminal';
 import { TypeScriptLab } from './components/TypeScriptLab';
-import { ShieldCheck, BookOpen, Layers, GitBranch, Cpu, Terminal, CheckCircle2 } from 'lucide-react';
+import { ShieldCheck, Layers } from 'lucide-react';
 
 const API_BASE = 'http://127.0.0.1:8009';
 

@@ -1,13 +1,12 @@
 import React from 'react';
-import { FileText, Printer, Award, ShieldCheck, CheckCircle2 } from 'lucide-react';
-import { ProjectAudit, PortfolioSummary } from '../types';
+import { FileText, Printer, Award, CheckCircle2 } from 'lucide-react';
+import { ProjectAudit } from '../types';
 
 interface FullAuditDossierProps {
-  summary: PortfolioSummary;
   projects: ProjectAudit[];
 }
 
-export const FullAuditDossier: React.FC<FullAuditDossierProps> = ({ summary, projects }) => {
+export const FullAuditDossier: React.FC<FullAuditDossierProps> = ({ projects }) => {
   return (
     <div className="space-y-8 max-w-5xl mx-auto">
       {/* Dossier Action Bar */}

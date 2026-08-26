@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Sliders, AlertTriangle, ShieldCheck, Play, ArrowRight, TrendingDown } from 'lucide-react';
+import { Sliders, AlertTriangle, ShieldCheck, TrendingDown } from 'lucide-react';
 
 export const LeakageSandbox: React.FC = () => {
   const [pipelineMode, setPipelineMode] = useState<string>('proper_fit_transform');

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BarChart3, Calculator, Trophy, CheckCircle2, TrendingUp, Sparkles } from 'lucide-react';
+import { BarChart3, Calculator, Trophy, TrendingUp } from 'lucide-react';
 import { RegressionBenchmark, FeatureImportance } from '../types';
 
 export const Phase4Regression: React.FC = () => {

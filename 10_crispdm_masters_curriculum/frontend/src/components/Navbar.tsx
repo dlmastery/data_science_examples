@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, GraduationCap, Database, BarChart3, Binary, Compass, Network, Award, HelpCircle } from 'lucide-react';
+import { GraduationCap, Database, BarChart3, Binary, Compass, Network, Award, HelpCircle } from 'lucide-react';
 
 interface NavbarProps {
   activePhase: string;

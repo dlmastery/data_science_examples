@@ -1,5 +1,5 @@
 import React from 'react';
-import { Play, RotateCcw, ShieldCheck, Sparkles, Activity, Layers } from 'lucide-react';
+import { Play, RotateCcw, ShieldCheck, Layers, Activity } from 'lucide-react';
 import { EngineState } from '../types/domain';
 
 interface HeaderProps {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Network, ArrowRight, Zap, TrendingUp, Filter, Sparkles } from 'lucide-react';
+import { Network, ArrowRight } from 'lucide-react';
 import { AssociationRule } from '../types';
 
 export const Phase5Association: React.FC = () => {

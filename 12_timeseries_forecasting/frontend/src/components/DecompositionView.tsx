@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BarChart3, TrendingUp, Compass, Activity, ShieldCheck } from 'lucide-react';
+import { BarChart3 } from 'lucide-react';
 import { TimeSeriesRecord, StationarityInfo } from '../types';
 
 export const DecompositionView: React.FC = () => {
@@ -30,8 +30,8 @@ export const DecompositionView: React.FC = () => {
           Additive Signal Decomposition & Autoregressive Structures
         </h2>
         <p className="text-xs text-slate-300 leading-relaxed max-w-4xl">
-          Deconstruct the raw time series into its constituent orthogonal components: $Y_t = \text{Trend}_t + \text{Seasonal}_t + \text{Residual}_t$.
-          Inspect Autocorrelation (ACF) and Partial Autocorrelation (PACF) to identify AR($p$) and MA($q$) orders.
+          Deconstruct the raw time series into its constituent orthogonal components: Y_t = Trend_t + Seasonal_t + Residual_t.
+          Inspect Autocorrelation (ACF) and Partial Autocorrelation (PACF) to identify AR(p) and MA(q) orders.
         </p>
       </div>
 

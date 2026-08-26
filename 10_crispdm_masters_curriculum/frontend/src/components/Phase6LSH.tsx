@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Binary, Search, Zap, CheckCircle2, ArrowRight, ShieldCheck } from 'lucide-react';
+import { Binary, Search } from 'lucide-react';
 import { RecordItem } from '../types';
 
 export const Phase6LSH: React.FC = () => {

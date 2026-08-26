@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Layers, Trophy, TrendingUp, CheckCircle2, Award, Zap } from 'lucide-react';
+import { Trophy, Award } from 'lucide-react';
 import { ModelTournamentItem } from '../types';
 
 export const TournamentLeaderboard: React.FC = () => {

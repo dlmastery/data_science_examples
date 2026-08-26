@@ -1,5 +1,5 @@
 import React from 'react';
-import { Compass, BookOpen, Layers, CheckCircle2, TrendingUp, Cpu, Binary, ShieldCheck } from 'lucide-react';
+import { Compass, CheckCircle2 } from 'lucide-react';
 
 export const CrispDmWorkflow: React.FC = () => {
   const phases = [

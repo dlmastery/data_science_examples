@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { HelpCircle, X, CheckCircle2, AlertCircle, Sparkles } from 'lucide-react';
+import { HelpCircle, X, CheckCircle2, AlertCircle } from 'lucide-react';
 import { CurriculumChapter } from '../types';
 
 interface QuizModalProps {

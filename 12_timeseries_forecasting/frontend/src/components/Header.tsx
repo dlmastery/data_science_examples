@@ -1,5 +1,5 @@
 import React from 'react';
-import { TrendingUp, Layers, Compass, BarChart3, Sliders, ShieldCheck, Activity, Cpu } from 'lucide-react';
+import { TrendingUp, Layers, Compass, BarChart3, Activity, Cpu } from 'lucide-react';
 
 interface HeaderProps {
   activeTab: 'forecast' | 'crispdm' | 'decomp' | 'tournament' | 'admin';

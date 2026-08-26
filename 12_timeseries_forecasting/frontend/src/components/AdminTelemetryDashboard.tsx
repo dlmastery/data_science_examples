@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Cpu, RotateCcw, TrendingUp, CheckCircle2, Award, Zap, Server, Sliders } from 'lucide-react';
+import { Cpu, RotateCcw, Sliders } from 'lucide-react';
 import { AutoResearchTrial } from '../types';
 
 export const AdminTelemetryDashboard: React.FC = () => {

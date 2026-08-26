@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Layers, FileText, CheckCircle2, Award, Terminal, Sliders, ExternalLink } from 'lucide-react';
+import { ShieldCheck, Layers, FileText, Award, Sliders } from 'lucide-react';
 
 interface HeaderProps {
   activeTab: 'portfolio' | 'explorer' | 'sandbox' | 'dossier';

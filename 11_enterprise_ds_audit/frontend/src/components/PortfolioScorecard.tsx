@@ -1,5 +1,5 @@
 import React from 'react';
-import { Award, ShieldCheck, CheckCircle2, AlertTriangle, XCircle, TrendingUp, Layers, ExternalLink } from 'lucide-react';
+import { Award, ShieldCheck, Layers } from 'lucide-react';
 import { PortfolioSummary } from '../types';
 
 interface PortfolioScorecardProps {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShieldCheck, Code, CheckCircle2, AlertTriangle, Sparkles, BookOpen, Layers, Terminal } from 'lucide-react';
+import { ShieldCheck, Code } from 'lucide-react';
 
 export const TypeScriptLab: React.FC = () => {
   const [activePattern, setActivePattern] = useState<'branded' | 'discriminated' | 'assertNever' | 'fsm' | 'result'>('branded');

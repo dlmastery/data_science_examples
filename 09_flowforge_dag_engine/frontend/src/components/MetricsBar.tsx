@@ -1,6 +1,6 @@
 import React from 'react';
 import { EngineState, DAGMetrics } from '../types/domain';
-import { CheckCircle2, Clock, Cpu, Gauge, Zap, AlertTriangle } from 'lucide-react';
+import { CheckCircle2, Clock, Cpu, Gauge } from 'lucide-react';
 
 interface MetricsBarProps {
   engineState: EngineState;

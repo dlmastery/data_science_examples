@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ProjectAudit } from '../types';
-import { ShieldCheck, CheckCircle2, AlertTriangle, FileText, Code, ExternalLink, Layers, Terminal } from 'lucide-react';
+import { ShieldCheck, CheckCircle2, FileText } from 'lucide-react';
 
 interface ProjectAuditExplorerProps {
   projects: ProjectAudit[];
