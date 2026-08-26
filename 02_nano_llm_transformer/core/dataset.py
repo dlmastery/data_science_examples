@@ -314,6 +314,49 @@ KNOWLEDGE_BASE = [
         ],
         "Step 1: Subtract 9 from both sides: 3x = 15.\nStep 2: Divide both sides by 3: x = 5.\nThe solution is x = 5.",
         [SYSTEM_PROMPTS[0], SYSTEM_PROMPTS[1], SYSTEM_PROMPTS[5]]
+    ),
+    (
+        [
+            "What is 2+2?", "2+2", "Calculate 2+2", "What is 2 plus 2?", "Solve 2+2"
+        ],
+        "2 + 2 = 4.",
+        [SYSTEM_PROMPTS[0], SYSTEM_PROMPTS[1], SYSTEM_PROMPTS[5]]
+    ),
+    (
+        [
+            "Tell me something cool", "Tell me an interesting fact", "Tell me something interesting",
+            "Give me a cool fact", "Tell me a fun fact"
+        ],
+        "Here is a cool fact: In modern Transformer language models, Rotary Position Embeddings (RoPE) represent token positions as complex rotations on 2D planes, allowing the model to naturally generalize to long context lengths without extra parameters!",
+        [SYSTEM_PROMPTS[0], SYSTEM_PROMPTS[1], SYSTEM_PROMPTS[2]]
+    ),
+    (
+        [
+            "How are you?", "How are you doing?", "How's it going?", "Are you doing well?"
+        ],
+        "I am doing fantastic, thank you! I am ready to help you write Python code, train neural networks, and explore data science. What are you working on today?",
+        [SYSTEM_PROMPTS[0], SYSTEM_PROMPTS[1]]
+    ),
+    (
+        [
+            "What is data science?", "Explain data science.", "Define data science."
+        ],
+        "Data science is an interdisciplinary field that uses statistical analysis, machine learning algorithms, and domain expertise to extract actionable insights and predictive models from structured and unstructured data.",
+        [SYSTEM_PROMPTS[0], SYSTEM_PROMPTS[1], SYSTEM_PROMPTS[2]]
+    ),
+    (
+        [
+            "Tell me a joke", "Make me laugh", "Do you know a joke?", "Tell a funny joke"
+        ],
+        "Why do machine learning models never get lost? Because they always follow the gradient descent path downhill to global minimum!",
+        [SYSTEM_PROMPTS[0], SYSTEM_PROMPTS[1]]
+    ),
+    (
+        [
+            "What is Python?", "Explain Python programming language.", "Why use Python for machine learning?"
+        ],
+        "Python is a high-level, dynamically typed programming language known for its clear syntax and massive ecosystem of scientific computing libraries like PyTorch, NumPy, Pandas, and Scikit-Learn.",
+        [SYSTEM_PROMPTS[0], SYSTEM_PROMPTS[1], SYSTEM_PROMPTS[3]]
     )
 ]
 

@@ -112,7 +112,7 @@ async def chat_stream(
     temperature: Optional[float] = 0.0,
     top_p: Optional[float] = 0.9,
     top_k: Optional[int] = 40,
-    repetition_penalty: Optional[float] = 1.05,
+    repetition_penalty: Optional[float] = 1.0,
     max_tokens: Optional[int] = 180
 ):
     """Server-Sent Events (SSE) streaming token generator."""
