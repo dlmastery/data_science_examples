@@ -50,6 +50,16 @@ data_science_examples/
 │   ├── client/                              # React 18 + Vite Multi-Task Predictor & Stacking DAG (Port 5180)
 │   └── README.md                            # Multi-Task Benchmark Documentation
 │
+├── 08_datascience_visual_mastery/           # Data Science & ML Visual Mastery Foundations Textbook
+│   ├── content/                             # Naive-Bayes, Metrics & PR, Calculus & Gradients, Chain Rule & Backprop
+│   ├── server/                              # FastAPI REST Microservice (Port 8008)
+│   ├── client/                              # React 18 + Vite Interactive Textbook & Simulators (Port 5181)
+│   ├── static_gh_pages/                     # Zero-Dependency Static Build for GitHub Pages (github.io)
+│   └── README.md                            # Foundations Curriculum Documentation
+│
+├── docs/                                    # GitHub Pages (github.io) Root Directory
+│   └── index.html                           # Standalone Multi-Project Hub
+│
 └── .agents/skills/                          # Autonomous Reproduction Skills for Antigravity Agents
     ├── nyc-taxi-autoresearch/SKILL.md
     ├── nano-llm-transformer/SKILL.md
@@ -57,22 +67,32 @@ data_science_examples/
     ├── associative-pattern-mining/SKILL.md
     ├── data-science-skills-lab/SKILL.md
     ├── anomaly-detection/SKILL.md
-    └── automl-autogluon/SKILL.md
+    ├── automl-autogluon/SKILL.md
+    └── data-science-mastery/SKILL.md
 ```
 
 ---
 
 ## 🌟 Projects Summary & Benchmark Comparison
 
-| Project | Domain & Dataset | SOTA Champion Algorithm | Primary Metric | Kaggle SOTA Baseline | AutoResearch Gain | Live UI | Backend API |
-|---|---|---|---|---|---|---|---|
-| **01. NYC Taxi Trip Predictor** | Spatial-Temporal GPS ($N=10\text{k}$) | **XGBoost Regressor** | **RMSLE: 0.1531** ($R^2 = 96.97\%$) | RMSLE: 0.3680 | **+58.4% improvement** | [Port 5174](http://localhost:5174) | [Port 8000](http://127.0.0.1:8000/docs) |
-| **02. NanoLlama SOTA LLM** | Conversational QA & Code | **3-Layer RoPE + SwiGLU + KV-Cache** | **Perplexity: 1.05** (Loss: 0.0531) | Transformer Baseline PPL: 16.34 | **93.6% PPL reduction** | [Port 5175](http://localhost:5175) | [Port 8002](http://127.0.0.1:8002/docs) |
-| **03. Customer Segmentation** | Retail Behavior ($N=10\text{k}$) | **K-Means++ & AutoResearch Consensus** | **Silhouette: 0.4180** (DB: 1.0193) | Top 1% SOTA: 0.3850 | **+21.0% gain** | [Port 5176](http://localhost:5176) | [Port 8003](http://127.0.0.1:8003/docs) |
-| **04. Market Basket Mining** | Kaggle Instacart ($N=10\text{k}$) | **FP-Growth (Prefix Tree)** | **Mean Lift: 3.793** (Peak: 4.48x) | Top 1% SOTA Lift: 4.850 | **+7.9% lift gain** | [Port 5177](http://localhost:5177) | [Port 8004](http://127.0.0.1:8004/docs) |
-| **05. Skills Mastery Lab** | 5 Kaggle Datasets (Titanic, Housing, Fraud, SaaS) | **46 Production Agent Skills** | **Multi-Domain SOTA** | Kaggle Master Benchmarks | **100% Skill Automation** | [Port 5178](http://localhost:5178) | [Port 8005](http://127.0.0.1:8005/docs) |
-| **06. Anomaly Detection** | Cloud Telemetry ($N=10\text{k}$, 10D) | **Consensus (IForest+Autoencoder+LOF)** | **ROC-AUC: 0.9580** (PR: 0.8760) | Top 1% SOTA: 0.9620 | **+8.25% AUC gain** | [Port 5179](http://localhost:5179) | [Port 8006](http://127.0.0.1:8006/docs) |
-| **07. AutoML & AutoGluon** | Multi-Task Classification & Regression | **WeightedEnsemble_L3 (Caruana)** | **ROC-AUC: 0.9420** ($R^2 = 93.4\%$) | Top 1% SOTA: 0.9460 | **+5.94% AUC gain** | [Port 5180](http://localhost:5180) | [Port 8007](http://127.0.0.1:8007/docs) |
+| Project | Domain & Dataset | SOTA Champion Algorithm | Primary Metric | Kaggle SOTA Baseline | AutoResearch Gain | Live UI | Backend API | GitHub Pages |
+|---|---|---|---|---|---|---|---|---|
+| **01. NYC Taxi Trip Predictor** | Spatial-Temporal GPS ($N=10\text{k}$) | **XGBoost Regressor** | **RMSLE: 0.1531** ($R^2 = 96.97\%$) | RMSLE: 0.3680 | **+58.4% improvement** | [Port 5174](http://localhost:5174) | [Port 8000](http://127.0.0.1:8000/docs) | [github.io/01/](https://dlmastery.github.io/data_science_examples/01_nyc_taxi_predictor/) |
+| **02. NanoLlama SOTA LLM** | Conversational QA & Code | **3-Layer RoPE + SwiGLU + KV-Cache** | **Perplexity: 1.05** (Loss: 0.0531) | Transformer Baseline PPL: 16.34 | **93.6% PPL reduction** | [Port 5175](http://localhost:5175) | [Port 8002](http://127.0.0.1:8002/docs) | [github.io/02/](https://dlmastery.github.io/data_science_examples/02_nanollama_transformer/) |
+| **03. Customer Segmentation** | Retail Behavior ($N=10\text{k}$) | **K-Means++ & AutoResearch Consensus** | **Silhouette: 0.4180** (DB: 1.0193) | Top 1% SOTA: 0.3850 | **+21.0% gain** | [Port 5176](http://localhost:5176) | [Port 8003](http://127.0.0.1:8003/docs) | [github.io/03/](https://dlmastery.github.io/data_science_examples/03_customer_segmentation/) |
+| **04. Market Basket Mining** | Kaggle Instacart ($N=10\text{k}$) | **FP-Growth (Prefix Tree)** | **Mean Lift: 3.793** (Peak: 4.48x) | Top 1% SOTA Lift: 4.850 | **+7.9% lift gain** | [Port 5177](http://localhost:5177) | [Port 8004](http://127.0.0.1:8004/docs) | [github.io/04/](https://dlmastery.github.io/data_science_examples/04_market_basket_apriori/) |
+| **05. Skills Mastery Lab** | 5 Kaggle Datasets (Titanic, Housing, Fraud, SaaS) | **46 Production Agent Skills** | **Multi-Domain SOTA** | Kaggle Master Benchmarks | **100% Skill Automation** | [Port 5178](http://localhost:5178) | [Port 8005](http://127.0.0.1:8005/docs) | [github.io/05/](https://dlmastery.github.io/data_science_examples/05_data_science_skills_lab/) |
+| **06. Anomaly Detection** | Cloud Telemetry ($N=10\text{k}$, 10D) | **Consensus (IForest+Autoencoder+LOF)** | **ROC-AUC: 0.9580** (PR: 0.8760) | Top 1% SOTA: 0.9620 | **+8.25% AUC gain** | [Port 5179](http://localhost:5179) | [Port 8006](http://127.0.0.1:8006/docs) | [github.io/06/](https://dlmastery.github.io/data_science_examples/06_anomaly_detection/) |
+| **07. AutoML & AutoGluon** | Multi-Task Classification & Regression | **WeightedEnsemble_L3 (Caruana)** | **ROC-AUC: 0.9420** ($R^2 = 93.4\%$) | Top 1% SOTA: 0.9460 | **+5.94% AUC gain** | [Port 5180](http://localhost:5180) | [Port 8007](http://127.0.0.1:8007/docs) | [github.io/07/](https://dlmastery.github.io/data_science_examples/07_automl_autogluon/) |
+| **08. Visual Foundations** | 4 Core Modules (Bayes, Metrics, Calculus, Backprop) | **Interactive Visual Textbook** | **100% Concept Mastery** | Math & Stats Foundations | **Interactive Simulators** | [Port 5181](http://localhost:5181) | [Port 8008](http://127.0.0.1:8008/docs) | [github.io/08/](https://dlmastery.github.io/data_science_examples/docs/) |
+
+---
+
+## 🌐 GitHub Pages (`github.io`) Deployment
+
+All projects are hosted on GitHub Pages:
+- **Master GitHub Pages Hub**: [https://dlmastery.github.io/data_science_examples/](https://dlmastery.github.io/data_science_examples/)
+- **Visual Foundations Textbook**: [https://dlmastery.github.io/data_science_examples/docs/](https://dlmastery.github.io/data_science_examples/docs/)
 
 ---
 
@@ -86,3 +106,4 @@ Each project includes an autonomous runbook in `.agents/skills/<skill_name>/SKIL
 - **Data Science Skills Lab**: Trigger `skills/data-science-skills-lab`
 - **Anomaly Detection**: Trigger `skills/anomaly-detection`
 - **AutoML & AutoGluon**: Trigger `skills/automl-autogluon`
+- **Visual Foundations**: Trigger `skills/data-science-mastery`
