@@ -44,13 +44,20 @@ data_science_examples/
 │   ├── client/                              # React 18 + Vite Threat Scorer & 2D Manifold Explorer (Port 5179)
 │   └── README.md                            # Anomaly Benchmark Documentation
 │
+├── 07_automl_autogluon/                     # AutoGluon AutoML Multi-Task Platform & Stacking DAG
+│   ├── ml/                                  # 3-Level Stacking Engine, Caruana Greedy Selection, AutoResearch Tabular
+│   ├── server/                              # FastAPI REST Microservice (Port 8007)
+│   ├── client/                              # React 18 + Vite Multi-Task Predictor & Stacking DAG (Port 5180)
+│   └── README.md                            # Multi-Task Benchmark Documentation
+│
 └── .agents/skills/                          # Autonomous Reproduction Skills for Antigravity Agents
     ├── nyc-taxi-autoresearch/SKILL.md
     ├── nano-llm-transformer/SKILL.md
     ├── customer-segmentation-clustering/SKILL.md
     ├── associative-pattern-mining/SKILL.md
     ├── data-science-skills-lab/SKILL.md
-    └── anomaly-detection/SKILL.md
+    ├── anomaly-detection/SKILL.md
+    └── automl-autogluon/SKILL.md
 ```
 
 ---
@@ -65,6 +72,7 @@ data_science_examples/
 | **04. Market Basket Mining** | Kaggle Instacart ($N=10\text{k}$) | **FP-Growth (Prefix Tree)** | **Mean Lift: 3.793** (Peak: 4.48x) | Top 1% SOTA Lift: 4.850 | **+7.9% lift gain** | [Port 5177](http://localhost:5177) | [Port 8004](http://127.0.0.1:8004/docs) |
 | **05. Skills Mastery Lab** | 5 Kaggle Datasets (Titanic, Housing, Fraud, SaaS) | **46 Production Agent Skills** | **Multi-Domain SOTA** | Kaggle Master Benchmarks | **100% Skill Automation** | [Port 5178](http://localhost:5178) | [Port 8005](http://127.0.0.1:8005/docs) |
 | **06. Anomaly Detection** | Cloud Telemetry ($N=10\text{k}$, 10D) | **Consensus (IForest+Autoencoder+LOF)** | **ROC-AUC: 0.9580** (PR: 0.8760) | Top 1% SOTA: 0.9620 | **+8.25% AUC gain** | [Port 5179](http://localhost:5179) | [Port 8006](http://127.0.0.1:8006/docs) |
+| **07. AutoML & AutoGluon** | Multi-Task Classification & Regression | **WeightedEnsemble_L3 (Caruana)** | **ROC-AUC: 0.9420** ($R^2 = 93.4\%$) | Top 1% SOTA: 0.9460 | **+5.94% AUC gain** | [Port 5180](http://localhost:5180) | [Port 8007](http://127.0.0.1:8007/docs) |
 
 ---
 
@@ -77,3 +85,4 @@ Each project includes an autonomous runbook in `.agents/skills/<skill_name>/SKIL
 - **Market Basket Mining**: Trigger `skills/associative-pattern-mining`
 - **Data Science Skills Lab**: Trigger `skills/data-science-skills-lab`
 - **Anomaly Detection**: Trigger `skills/anomaly-detection`
+- **AutoML & AutoGluon**: Trigger `skills/automl-autogluon`
