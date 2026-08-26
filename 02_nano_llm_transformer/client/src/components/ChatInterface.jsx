@@ -21,12 +21,12 @@ export const ChatInterface = ({ presets = [] }) => {
     }
   ]);
   const [input, setInput] = useState('');
-  const [systemPrompt, setSystemPrompt] = useState('You are NanoLlama, a helpful, brilliant AI assistant.');
-  const [temperature, setTemperature] = useState(0.7);
+  const [systemPrompt, setSystemPrompt] = useState('You are NanoLlama, a helpful AI assistant.');
+  const [temperature, setTemperature] = useState(0.0);
   const [topP, setTopP] = useState(0.9);
   const [topK, setTopK] = useState(40);
-  const [repetitionPenalty, setRepetitionPenalty] = useState(1.1);
-  const [maxTokens, setMaxTokens] = useState(150);
+  const [repetitionPenalty, setRepetitionPenalty] = useState(1.05);
+  const [maxTokens, setMaxTokens] = useState(180);
 
   const [isStreaming, setIsStreaming] = useState(false);
   const [streamingMetrics, setStreamingMetrics] = useState(null);
@@ -41,8 +41,9 @@ export const ChatInterface = ({ presets = [] }) => {
     scrollToBottom();
   }, [messages, isStreaming]);
 
-  const handleSend = async (customPrompt = null) => {
+  const handleSend = async (customPrompt = null, customSystem = null) => {
     const textToSend = customPrompt || input;
+    const sysToSend = customSystem || systemPrompt;
     if (!textToSend.trim() || isStreaming) return;
 
     const userMsg = { role: 'user', content: textToSend };
@@ -59,7 +60,7 @@ export const ChatInterface = ({ presets = [] }) => {
     await api.streamChat(
       {
         prompt: textToSend,
-        system: systemPrompt,
+        system: sysToSend,
         temperature,
         top_p: topP,
         top_k: topK,
@@ -103,7 +104,7 @@ export const ChatInterface = ({ presets = [] }) => {
   const handleApplyPreset = (preset) => {
     if (preset.system) setSystemPrompt(preset.system);
     setInput(preset.user);
-    handleSend(preset.user);
+    handleSend(preset.user, preset.system);
   };
 
   const handleClearChat = () => {
@@ -209,7 +210,7 @@ export const ChatInterface = ({ presets = [] }) => {
           </div>
           <input
             type="range"
-            min="0.1"
+            min="0.0"
             max="1.5"
             step="0.05"
             value={temperature}

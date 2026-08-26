@@ -58,7 +58,11 @@ class NanoInferenceEngine:
         if self.model is None:
             raise RuntimeError("Model is not initialized or checkpoints are missing.")
 
-        prompt_str = self.tokenizer.format_chat(user_message, system_prompt)
+        # Normalize system prompt to clean canonical form if empty
+        if not system_prompt or not system_prompt.strip():
+            system_prompt = "You are NanoLlama, a helpful AI assistant."
+
+        prompt_str = self.tokenizer.format_chat(user_message.strip(), system_prompt.strip())
         prompt_tokens = self.tokenizer.encode(prompt_str, add_bos=True)
 
         device = next(self.model.parameters()).device
@@ -87,7 +91,7 @@ class NanoInferenceEngine:
                         next_token_logits[0, token_id] *= repetition_penalty
 
             # Temperature and Top-K/P Sampling
-            if temperature > 0.05:
+            if temperature > 0.15:
                 next_token_logits = next_token_logits / temperature
                 if top_k > 0:
                     v, _ = torch.topk(next_token_logits, min(top_k, next_token_logits.size(-1)))
@@ -105,6 +109,7 @@ class NanoInferenceEngine:
                 probs = F.softmax(next_token_logits, dim=-1)
                 next_token = torch.multinomial(probs, num_samples=1).item()
             else:
+                # Deterministic argmax for maximum coherence with character-level models
                 next_token = torch.argmax(next_token_logits, dim=-1).item()
 
             if t_first_token is None:

@@ -113,7 +113,13 @@ class CausalSelfAttention(nn.Module):
         keys = keys.transpose(1, 2)
         values = values.transpose(1, 2)
 
-        # Scaled Dot-Product Attention: (xq @ keys.T) / sqrt(head_dim)
+        if not return_attn and not use_cache and mask is not None:
+            # High-performance PyTorch native C++ vectorized SDPA
+            output = F.scaled_dot_product_attention(xq, keys, values, is_causal=True)
+            output = output.transpose(1, 2).contiguous().view(bsz, seqlen, -1)
+            return self.wo(output), None
+
+        # Fallback for KV cache and explicit attention matrix return
         scores = torch.matmul(xq, keys.transpose(2, 3)) / math.sqrt(self.head_dim)
         if mask is not None:
             scores = scores + mask

@@ -41,9 +41,9 @@ class TokenizeRequest(BaseModel):
     text: str = Field(..., example="Hello! Who are you?")
 
 class RetrainRequest(BaseModel):
-    epochs: Optional[int] = Field(20, ge=5, le=50)
+    epochs: Optional[int] = Field(35, ge=5, le=50)
     batch_size: Optional[int] = Field(16, ge=4, le=64)
-    lr: Optional[float] = Field(0.003, ge=0.0001, le=0.01)
+    lr: Optional[float] = Field(0.004, ge=0.0001, le=0.01)
 
 # Preset Prompt Templates
 PRESET_PROMPTS = [
@@ -51,7 +51,7 @@ PRESET_PROMPTS = [
         "id": "intro",
         "title": "Who are you?",
         "category": "Identity",
-        "system": "You are NanoLlama, a helpful, brilliant AI assistant.",
+        "system": "You are NanoLlama, a helpful AI assistant.",
         "user": "Hello! Who are you and how were you built?"
     },
     {
@@ -108,12 +108,12 @@ def get_presets():
 @app.get("/api/chat/stream")
 async def chat_stream(
     prompt: str,
-    system: Optional[str] = "You are NanoLlama, a helpful, brilliant AI assistant.",
-    temperature: Optional[float] = 0.7,
+    system: Optional[str] = "You are NanoLlama, a helpful AI assistant.",
+    temperature: Optional[float] = 0.0,
     top_p: Optional[float] = 0.9,
     top_k: Optional[int] = 40,
-    repetition_penalty: Optional[float] = 1.1,
-    max_tokens: Optional[int] = 150
+    repetition_penalty: Optional[float] = 1.05,
+    max_tokens: Optional[int] = 180
 ):
     """Server-Sent Events (SSE) streaming token generator."""
     if not engine.model:
@@ -148,9 +148,9 @@ def inspect_attention(req: AttentionInspectRequest):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-@app.post("/api/tokenize")
-def tokenize_text(req: TokenizeRequest):
-    """Analyze subwords, token IDs, and top-5 predicted probabilities."""
+@app.post("/api/inspect/tokenize")
+def inspect_tokenize(req: TokenizeRequest):
+    """Decompose text into tokens, byte representations, and top-5 probability distributions."""
     try:
         if not engine.model:
             engine.load()
@@ -159,38 +159,30 @@ def tokenize_text(req: TokenizeRequest):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-@app.get("/api/training/telemetry")
-def get_training_telemetry():
-    """Fetch pre-training and fine-tuning loss curves, perplexity, and parameter breakdown."""
-    if engine.telemetry:
-        return {"success": True, "data": engine.telemetry}
+@app.get("/api/telemetry")
+def get_telemetry():
+    """Retrieve model training telemetry and loss curves."""
+    chk_path = os.path.join(os.path.dirname(__file__), 'checkpoints/telemetry.json')
+    if os.path.exists(chk_path):
+        with open(chk_path, 'r', encoding='utf-8') as f:
+            return {"success": True, "telemetry": json.load(f)}
+    return {"success": False, "message": "No training telemetry found"}
 
-    meta_path = os.path.join(engine.checkpoints_dir, 'telemetry.json')
-    if os.path.exists(meta_path):
-        with open(meta_path, 'r', encoding='utf-8') as f:
-            data = json.load(f)
-            engine.telemetry = data
-            return {"success": True, "data": data}
-    return {"success": False, "message": "Telemetry not found"}
-
-@app.post("/api/train/live")
-def trigger_live_training(req: RetrainRequest):
-    """Trigger live in-memory training and reload updated model."""
+@app.post("/api/admin/retrain")
+async def retrain_model(req: RetrainRequest):
+    """Trigger SFT retraining on the domain conversational & coding dataset."""
     try:
-        train_nanollama(
+        telemetry = train_nanollama(
             epochs=req.epochs,
             batch_size=req.batch_size,
             lr=req.lr
         )
+        # Reload engine in-memory
         engine.load()
-        return {
-            "success": True,
-            "message": "NanoLlama model trained and checkpointed successfully!",
-            "telemetry": engine.telemetry
-        }
+        return {"success": True, "message": "Retraining completed successfully!", "telemetry": telemetry}
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Training failed: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
+    uvicorn.run(app, host="127.0.0.1", port=8002)
