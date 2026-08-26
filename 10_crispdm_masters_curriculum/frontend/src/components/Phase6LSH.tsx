@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Binary, Search } from 'lucide-react';
 import { RecordItem } from '../types';
+import { MarkdownMathRenderer } from './MarkdownMathRenderer';
 
 export const Phase6LSH: React.FC = () => {
   const [targetId, setTargetId] = useState<string>('ID_0042');
@@ -35,10 +36,9 @@ export const Phase6LSH: React.FC = () => {
         <h2 className="text-xl font-bold text-white tracking-tight">
           Sub-Linear Approximate Nearest Neighbors via Random Hyperplanes
         </h2>
-        <p className="text-xs text-slate-300 leading-relaxed max-w-4xl">
-          Exact k-Nearest Neighbors has linear computational complexity O(N * D).
-          Locality-Sensitive Hashing applies random hyperplane projection to ensure that vectors with high cosine similarity collide into identical hash buckets with probability P(h(x)=h(y)) = 1 - (theta / pi), enabling O(1) expected query retrieval.
-        </p>
+        <MarkdownMathRenderer
+          content="Exact k-Nearest Neighbors has linear computational complexity $\mathcal{O}(N \cdot D)$. Locality-Sensitive Hashing applies random hyperplane projection to ensure that vectors with high cosine similarity collide into identical hash buckets with probability $P(h(\mathbf{u}) = h(\mathbf{v})) = 1 - \frac{\theta(\mathbf{u}, \mathbf{v})}{\pi}$, enabling $\mathcal{O}(1)$ expected query retrieval."
+        />
       </div>
 
       {/* Query Selector Bar */}

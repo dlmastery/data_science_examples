@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Database, FileText, TrendingUp } from 'lucide-react';
 import { RecordItem } from '../types';
+import { MarkdownMathRenderer } from './MarkdownMathRenderer';
 
 export const Phase1Understanding: React.FC = () => {
   const [data, setData] = useState<{
@@ -37,10 +38,9 @@ export const Phase1Understanding: React.FC = () => {
         <h2 className="text-xl font-bold text-white tracking-tight">
           Exploratory Data Analysis & Statistical Profiling
         </h2>
-        <p className="text-xs text-slate-300 leading-relaxed max-w-4xl">
-          In this foundational phase, we rigorously profile the Kaggle Census & Income dataset ($N = 2,500$ records, 11 features).
-          Our objective is to discover distributional skewness, check for multicollinearity across continuous covariates, and enforce leakage-safe preprocessing boundaries.
-        </p>
+        <MarkdownMathRenderer
+          content="In this foundational phase, we rigorously profile the Kaggle Census & Income dataset ($N = 2,500$ records, 11 features). Our objective is to discover distributional skewness, check for multicollinearity across continuous covariates, and enforce leakage-safe preprocessing boundaries."
+        />
       </div>
 
       {/* KPI Stats Banner */}

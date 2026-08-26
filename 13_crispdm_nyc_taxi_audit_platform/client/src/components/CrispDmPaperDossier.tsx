@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { CrispDmPaper, PaperSection, AsyncState } from '../types';
 import { FileText, Printer, Award, BookOpen, ChevronLeft, ChevronRight, CheckCircle2 } from 'lucide-react';
+import { MarkdownMathRenderer } from './MarkdownMathRenderer';
 
 export const CrispDmPaperDossier: React.FC = () => {
   const [paperState, setPaperState] = useState<AsyncState<CrispDmPaper>>({ status: 'idle' });
@@ -102,9 +103,7 @@ export const CrispDmPaperDossier: React.FC = () => {
                 <h4 className="text-xs font-bold font-mono uppercase tracking-wider text-cyan-400 mb-2 flex items-center gap-2">
                   <Award className="w-4 h-4" /> Abstract
                 </h4>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify">
-                  {paperState.data.abstract}
-                </p>
+                <MarkdownMathRenderer content={paperState.data.abstract} />
               </div>
             )}
 
@@ -128,10 +127,8 @@ export const CrispDmPaperDossier: React.FC = () => {
                     </span>
                   </div>
 
-                  {/* Section Text */}
-                  <div className="text-xs sm:text-sm text-slate-300 leading-relaxed whitespace-pre-line space-y-4">
-                    {sec.content}
-                  </div>
+                  {/* Section Text - Rendered with LaTeX math & Markdown */}
+                  <MarkdownMathRenderer content={sec.content} />
 
                   {/* Optional Key Metrics Table */}
                   {sec.key_metrics && (

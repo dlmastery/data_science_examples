@@ -155,7 +155,7 @@ CRISP_DM_10_PAGE_PAPER: Dict[str, Any] = {
                 "(19.1%), `rate_code_JFK` (16.7%), `congestion_surcharge` (8.4%), `trip_duration_min` (6.6%), and `precipitation_mm` (3.9%).\n\n"
                 "Local inference queries decompose into exact additive Shapley force contributions:\n\n"
                 "$$\\hat{y}_{\\text{fare}}(x) = \\phi_0 + \\sum_{i=1}^{M} \\phi_i(x)$$\n\n"
-                "where $\\phi_0 = \\$18.50$ (dataset base expected value) and $\\phi_i(x)$ represents the exact marginal USD contribution of each feature."
+                "where $\\phi_0 = 18.50\\text{ USD}$ (dataset base expected value) and $\\phi_i(x)$ represents the exact marginal USD contribution of each feature."
             )
         },
         {

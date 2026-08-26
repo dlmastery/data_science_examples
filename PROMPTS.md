@@ -214,5 +214,14 @@ make sure every aspect of the website is tested with browser testing not just fi
 ```
 * **Execution**: Developed and ran complete Playwright end-to-end browser automation test suite (`scripts/browser_test_suite.py`) validating every single aspect: interactive route presets, GPS coordinate sliders, dynamic surge multipliers, TreeSHAP force decomposition, 10-page academic research paper pagination, 6-dimension data quality scorecard, spatial clustering SVG map, AutoResearch tournament leaderboard, Optuna HPO trajectory, Code Auditor workbench, and live MLOps concurrency load test (>60k RPS). Captured 8 high-resolution screenshots in `docs/screenshots/` and certified 100% pass rate.
 
+---
+
+### 9. KaTeX LaTeX & Markdown Markup Rendering Resolution
+```text
+in some of the screens - specifically the data science screen - the markup was not rendered properly. this happened for other projects as well. can you please render markup properly
+```
+* **Execution**: Engineered and integrated `MarkdownMathRenderer.tsx` with KaTeX LaTeX mathematical typography across Project 13 (`CrispDmPaperDossier.tsx`, `core/paper.py`) and Project 10 (`Phase1Understanding.tsx`, `Phase6LSH.tsx`). Converted raw LaTeX strings (`$$\max...$$`, `$d_{\text{hav}}$`, `$\mathcal{O}(N \cdot D)$`, `$\text{PSI}$`), Markdown headings (`###`), bold text, bullet points, and tables into cleanly formatted mathematical components. Verified via Playwright browser test suite.
+
+
 
 
