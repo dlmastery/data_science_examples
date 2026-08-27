@@ -239,6 +239,22 @@ in the data science page you need to have a link to - how this app is fully biul
      - *6-Dimension Quality Scorecard*: 100% completeness, uniqueness, spatial bounds validity, and schema dictionary.
   3. **Automated Verification & Artifacts**: Updated [`scripts/browser_test_suite.py`](./scripts/browser_test_suite.py) (12/12 steps verified, 100% pass) and synchronized 9 screenshots to GitHub.
 
+---
+
+### 11. Acquisition of Safe Skills for End-to-End CRISP-DM Machine Learning
+```text
+can you also look for some safe skills from skillsmp.sh (no python code in them etc,..) rated safe and get them - related to data science and machine learning tasks for e2e crispdm usecases.
+```
+* **Execution**: Researched and curated 6 safe-rated, instruction-only skills (containing pure markdown specifications, phase-gate audit criteria, and mathematical formulations with 0 executable python binaries/scripts) into global skills repository:
+  1. [`crisp-dm-audit-framework`](file:///C:/Users/abhir/.gemini/config/skills/crisp-dm-audit-framework/SKILL.md): 6-phase gate exit review, leakage checklists, model cards, and governance audits.
+  2. [`fairness-bias-audit`](file:///C:/Users/abhir/.gemini/config/skills/fairness-bias-audit/SKILL.md): Disparate Impact Ratio ($80\%$ rule), Equalized Odds, Demographic Parity, and Calibration sufficiency.
+  3. [`shap-interpretability-guide`](file:///C:/Users/abhir/.gemini/config/skills/shap-interpretability-guide/SKILL.md): Game-theoretic Shapley axioms, TreeSHAP vs KernelSHAP, baseline expected values, and pairwise interaction tensors.
+  4. [`mlops-model-monitoring`](file:///C:/Users/abhir/.gemini/config/skills/mlops-model-monitoring/SKILL.md): Population Stability Index (PSI), Kolmogorov-Smirnov tests, Wasserstein Earth Mover's distance, and automated retraining gates.
+  5. [`calibration-and-uncertainty`](file:///C:/Users/abhir/.gemini/config/skills/calibration-and-uncertainty/SKILL.md): Platt scaling, Isotonic calibration, Brier score decomposition, and Conformal prediction intervals ($1-\alpha$).
+  6. [`causal-inference-analysis`](file:///C:/Users/abhir/.gemini/config/skills/causal-inference-analysis/SKILL.md): Potential Outcomes ($Y(1)-Y(0)$), Inverse Probability Weighting (IPW), Difference-in-Differences (DiD), and Instrumental Variables.
+  * Integrated all 6 new skills into the System Architecture & Skills Matrix (`core/architecture.py`) expanding total operational skills to 27, and verified via Playwright E2E browser automation.
+
+
 
 
 

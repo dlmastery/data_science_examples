@@ -165,6 +165,54 @@ SYSTEM_ARCHITECTURE_DOSSIER: Dict[str, Any] = {
             "mathematical_foundation": "\\text{PSI} = \\sum_{k=1}^K (P_k - B_k) \\ln\\left( \\frac{P_k}{B_k} \\right), \\quad \\text{Threshold} = 0.10"
         },
         {
+            "phase": "Phase 1: Business Understanding",
+            "skill_name": "causal-inference-analysis",
+            "category": "Quasi-Experimental Causal ROI",
+            "purpose": "Estimates true Average Treatment Effect (ATE) and counterfactual demand shifts under congestion pricing policies using Potential Outcomes and IPW.",
+            "code_reference": "C:/Users/abhir/.gemini/config/skills/causal-inference-analysis/SKILL.md",
+            "mathematical_foundation": "\\text{ATE} = \\mathbb{E}[Y(1) - Y(0)], \\quad \\hat{\\tau}_{\\text{IPW}} = \\frac{1}{N} \\sum_{i=1}^N \\left( \\frac{T_i Y_i}{e(X_i)} - \\frac{(1-T_i)Y_i}{1 - e(X_i)} \\right)"
+        },
+        {
+            "phase": "Phase 4: Modeling",
+            "skill_name": "calibration-and-uncertainty",
+            "category": "Probability Calibration",
+            "purpose": "Applies Isotonic and Platt scaling to high-tip probability estimators and generates distribution-free conformal prediction intervals.",
+            "code_reference": "C:/Users/abhir/.gemini/config/skills/calibration-and-uncertainty/SKILL.md",
+            "mathematical_foundation": "P(Y_{n+1} \\in \\mathcal{C}(X_{n+1})) \\ge 1 - \\alpha, \\quad \\text{ECE} = \\sum_{m=1}^M \\frac{|B_m|}{N} |\\text{acc}(B_m) - \\text{conf}(B_m)|"
+        },
+        {
+            "phase": "Phase 5: Evaluation & XAI",
+            "skill_name": "shap-interpretability-guide",
+            "category": "Game-Theoretic XAI",
+            "purpose": "Decomposes complex nonlinear model predictions into exact additive Shapley force contributions and pairwise interaction tensors.",
+            "code_reference": "C:/Users/abhir/.gemini/config/skills/shap-interpretability-guide/SKILL.md",
+            "mathematical_foundation": "\\phi_i(x) = \\sum_{S \\subseteq F \\setminus \\{i\\}} \\frac{|S|!(|F| - |S| - 1)!}{|F|!} [f_x(S \\cup \\{i\\}) - f_x(S)]"
+        },
+        {
+            "phase": "Phase 5: Evaluation & XAI",
+            "skill_name": "fairness-bias-audit",
+            "category": "Algorithmic Equity",
+            "purpose": "Audits disparate impact ratios across protected demographic groups and verifies equalized odds and calibration parity.",
+            "code_reference": "C:/Users/abhir/.gemini/config/skills/fairness-bias-audit/SKILL.md",
+            "mathematical_foundation": "\\text{DIR} = \\frac{P(\\hat{Y}=1 \\mid D=0)}{P(\\hat{Y}=1 \\mid D=1)} \\ge 0.80 \\quad (\\text{Four-Fifths Rule})"
+        },
+        {
+            "phase": "Phase 6: Deployment & MLOps",
+            "skill_name": "mlops-model-monitoring",
+            "category": "Drift & Governance",
+            "purpose": "Continuously tracks covariate shift, Population Stability Index (PSI), and Kolmogorov-Smirnov statistics in live inference streams.",
+            "code_reference": "C:/Users/abhir/.gemini/config/skills/mlops-model-monitoring/SKILL.md",
+            "mathematical_foundation": "D = \\sup_{x} |F_{\\text{base}}(x) - F_{\\text{prod}}(x)|, \\quad \\text{PSI} = \\sum (P_k - B_k) \\ln(P_k / B_k)"
+        },
+        {
+            "phase": "Architecture & Engineering",
+            "skill_name": "crisp-dm-audit-framework",
+            "category": "Phase-Gate Verification",
+            "purpose": "Enforces strict 6-phase gate exit criteria, zero-leakage pipeline audits, and model governance cards.",
+            "code_reference": "C:/Users/abhir/.gemini/config/skills/crisp-dm-audit-framework/SKILL.md",
+            "mathematical_foundation": "\\text{GateExitScore}(\\text{Phase}_k) = 1.0 \\iff \\text{ZeroLeakage} \\land \\text{ReproducibleSeed} \\land \\text{SLAPass}"
+        },
+        {
             "phase": "Architecture & Engineering",
             "skill_name": "matt-pocock-typescript-patterns",
             "category": "Type-Safe Architecture",
