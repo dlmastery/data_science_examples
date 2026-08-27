@@ -254,6 +254,21 @@ can you also look for some safe skills from skillsmp.sh (no python code in them 
   6. [`causal-inference-analysis`](file:///C:/Users/abhir/.gemini/config/skills/causal-inference-analysis/SKILL.md): Potential Outcomes ($Y(1)-Y(0)$), Inverse Probability Weighting (IPW), Difference-in-Differences (DiD), and Instrumental Variables.
   * Integrated all 6 new skills into the System Architecture & Skills Matrix (`core/architecture.py`) expanding total operational skills to 27, and verified via Playwright E2E browser automation.
 
+---
+
+### 12. Portfolio Documentation, README & Artifacts Synchronization
+```text
+can you do update github prompts.md as well as other documentation and readme.md
+```
+* **Execution**: Comprehensive synchronization across all portfolio documentation files:
+  1. [`README.md`](./README.md): Updated project index to 14 systems (Projects 00 through 13), 59 agent skills, and direct links to implementation plans and walkthroughs.
+  2. [`13_crispdm_nyc_taxi_audit_platform/README.md`](./13_crispdm_nyc_taxi_audit_platform/README.md): Added 9th screenshot preview, 27-skills architecture matrix breakdown, and 6-subtab EDA suite specs.
+  3. [`WALKTHROUGH.md`](./WALKTHROUGH.md): Embedded full 9-screenshot verification table and AST/code references.
+  4. [`SKILLS.md`](./SKILLS.md): Added Project 13 mapping and full catalog of the 6 newly acquired safe CRISP-DM skills.
+  5. [`IMPLEMENTATION_PLANS.md`](./IMPLEMENTATION_PLANS.md) & [`implementation_plans/13_crispdm_nyc_taxi_audit_platform_plan.md`](./implementation_plans/13_crispdm_nyc_taxi_audit_platform_plan.md): Updated checklists, KaTeX math specifications, and Playwright 12-step verification results.
+  6. Committed and pushed all documentation assets to GitHub repository `dlmastery/data_science_examples` on `main`.
+
+
 
 
 

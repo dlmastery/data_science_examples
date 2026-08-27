@@ -67,9 +67,9 @@ Every single view and administrative dashboard was verified via end-to-end headl
 ![CRISP-DM Paper](./docs/screenshots/browser_test_02_crisp_dm_paper.png)
 *10-page in-depth research paper with formal LaTeX equations, empirical tables, and printable pagination.*
 
-### 3. Exploratory Data Analysis & 6-Dimension Quality Scorecard
+### 3. Comprehensive Exploratory Data Analysis & 6-Dimension Quality Scorecard
 ![EDA Scorecard](./docs/screenshots/browser_test_03_eda_scorecard.png)
-*100% completeness audit, duplicate detection, parametric distributions, and Pearson correlation heatmap.*
+*Textbook-grade 6-subtab visual analytics suite: 14-bin feature distributions with Tukey's IQR outlier fences ($1.5 \times \text{IQR}$), bivariate OLS linear regression scatter charts ($\hat{y} = \beta x + \alpha$), 24h × 7D temporal demand heatmap, NYC borough partition metrics, Pearson/Spearman correlation matrices, and 100% completeness quality scorecard.*
 
 ### 4. Geospatial Mobility & Spatial Density Clustering Map
 ![Spatial Clustering](./docs/screenshots/browser_test_04_spatial_clustering.png)
@@ -91,6 +91,10 @@ Every single view and administrative dashboard was verified via end-to-end headl
 ![MLOps Load Test](./docs/screenshots/browser_test_08_mlops_load_test.png)
 *Real-time PSI drift monitoring and live concurrency stress testing executing $>60,000$ requests/sec with $p95 < 3.8$ ms.*
 
+### 9. Full-Stack System Architecture & 27 Skills Operational Matrix
+![Architecture Matrix](./docs/screenshots/browser_test_09_architecture_skills_modal.png)
+*Interactive modal and dedicated admin portal view detailing how the application is built from the ground up, cataloging all 27 operationalized Data Science & TypeScript skills with mathematical equations rendered in KaTeX and direct source code pointers.*
+
 ---
 
 ## ⚡ Live Ports & Local Execution
@@ -99,13 +103,13 @@ Every single view and administrative dashboard was verified via end-to-end headl
 * **React 18 + Vite Frontend Platform**: `http://127.0.0.1:5186`
 
 ```bash
-# 1. Start Backend Microservice (Port 8013)
-cd server
+# Terminal 1: Start Backend Microservice (Port 8013)
+cd 13_crispdm_nyc_taxi_audit_platform/server
 python -m uvicorn main:app --host 127.0.0.1 --port 8013
 
-# 2. Start Frontend UI Platform (Port 5186)
-cd client
+# Terminal 2: Start Frontend UI Platform (Port 5186)
+cd 13_crispdm_nyc_taxi_audit_platform/client
 npm install
-npm run dev
+npm run dev -- --port 5186 --host 127.0.0.1
 ```
 

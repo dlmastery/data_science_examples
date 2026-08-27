@@ -1,10 +1,10 @@
 # 🌟 Enterprise Data Science, Machine Learning & TypeScript Platform Repository
 
-A comprehensive, production-grade portfolio of **13 Full-Stack Data Science, Machine Learning, Deep Learning, and TypeScript Systems**, engineered adhering to the **CRISP-DM standard**, rigorous mathematical foundations, and state-of-the-art interactive UX.
+A comprehensive, production-grade portfolio of **14 Full-Stack Data Science, Machine Learning, Deep Learning, and TypeScript Systems (Projects 00 through 13)**, engineered adhering to the **CRISP-DM standard**, rigorous mathematical foundations, and state-of-the-art interactive UX.
 
 ---
 
-## 🏛️ Comprehensive Systems Portfolio Index (13 Projects)
+## 🏛️ Comprehensive Systems Portfolio Index (14 Projects)
 
 | # | System Title & Directory | Domain & Methodology | Backend Port | Frontend Port | Primary Screenshot Preview |
 |---|---|---|:---:|:---:|:---:|
@@ -25,11 +25,13 @@ A comprehensive, production-grade portfolio of **13 Full-Stack Data Science, Mac
 
 ---
 
-## 🎯 Verbatim Reproduction Prompt Catalog, Skills & Formal DS Audit
+## 🎯 Verbatim Reproduction Prompt Catalog, Implementation Plans & Formal DS Audit
 
-* **Prompt Catalog**: Every prompt used to generate, iterate, and verify these applications is cataloged in 👉 **[PROMPTS.md](./PROMPTS.md)**
-* **AI Agent Skills**: 54+ autonomous agent skills packaged inside `skills/` and `.agents/skills/` to replicate, train, and test each system are documented in 👉 **[SKILLS.md](./SKILLS.md)**
-* **Data Science & Leakage Audit**: Full forensic code audit certifying zero leakage and 99.3% compliance is documented in 👉 **[AUDIT_REPORT.md](./AUDIT_REPORT.md)**
+* **Prompt Catalog**: Every prompt used to generate, iterate, and verify these applications is cataloged chronologically in 👉 **[PROMPTS.md](./PROMPTS.md)**
+* **In-Depth Implementation Plans**: Full technical specifications, type systems, and verification suites for all 14 systems are cataloged in 👉 **[IMPLEMENTATION_PLANS.md](./IMPLEMENTATION_PLANS.md)**
+* **Master Architectural Walkthrough**: Deep-dive code references, AST inspection pointers, and visual tours across all systems in 👉 **[WALKTHROUGH.md](./WALKTHROUGH.md)**
+* **AI Agent Skills**: 59 autonomous agent skills (including 6 newly acquired safe CRISP-DM skills) packaged inside `skills/` and `.agents/skills/` to replicate, train, and test each system are documented in 👉 **[SKILLS.md](./SKILLS.md)**
+* **Data Science & Leakage Audit**: Full forensic code audit certifying zero leakage and 99.85% compliance is documented in 👉 **[AUDIT_REPORT.md](./AUDIT_REPORT.md)**
 
 ---
 

@@ -22,16 +22,30 @@ These skills allow any AI coding agent or developer using **Google Antigravity**
 | **10** | [`10_crispdm_masters_curriculum`](./10_crispdm_masters_curriculum) | `data-cleaning`<br>`data-narrative-builder`<br>`methodology-explainer`<br>`analysis-planning` | End-to-end 7-phase CRISP-DM master's curriculum, Pearson correlation heatmap, and Sub-Linear Cosine LSH nearest neighbor search. |
 | **11** | [`11_enterprise_ds_audit`](./11_enterprise_ds_audit) | `data-quality-audit`<br>`analysis-qa-checklist`<br>`peer-review-template`<br>`metric-reconciliation` | 6-dimension governance certification, data leakage simulation sandbox, and Mitchell et al. Model Card generation. |
 | **12** | [`12_timeseries_forecasting`](./12_timeseries_forecasting) | `time-series-analysis`<br>`business-metrics-calculator`<br>`dashboard-specification` | Multi-horizon forecast fans ($h=7..60$d), classical additive decomposition, ADF/KPSS stationarity tests, and 40-lag ACF/PACF bar charts. |
+| **13** | [`13_crispdm_nyc_taxi_audit_platform`](./13_crispdm_nyc_taxi_audit_platform) | `crisp-dm-audit-framework`<br>`fairness-bias-audit`<br>`shap-interpretability-guide`<br>`mlops-model-monitoring`<br>`calibration-and-uncertainty`<br>`causal-inference-analysis`<br>`matt-pocock-typescript-patterns` | Complete 6-phase CRISP-DM standard platform, 10-page LaTeX paper dossier, 27-skill operational architecture matrix, 6-subtab EDA suite, TreeSHAP force attributions, and live MLOps drift testing. |
+
+---
+
+## 🛡️ 6 Newly Acquired Safe CRISP-DM Machine Learning Skills (100% Instruction Specs)
+
+| Skill Identifier | CRISP-DM Focus Area | Core Mathematical Directives | Safe Rating |
+|---|---|---|:---:|
+| `crisp-dm-audit-framework` | **End-to-End Governance** | 6-Phase gate exit criteria, zero-leakage verification, model cards, and audit scorecards. | 🟢 **Safe** |
+| `fairness-bias-audit` | **Phase 5 (Evaluation)** | Disparate Impact Ratio ($\text{DIR} \ge 0.80$), Equalized Odds, Demographic Parity, Calibration Sufficiency. | 🟢 **Safe** |
+| `shap-interpretability-guide` | **Phase 5 (XAI)** | Game-theoretic Shapley axioms, TreeSHAP exact polynomial algorithm, and interaction tensors $\phi_{i,j}(x)$. | 🟢 **Safe** |
+| `mlops-model-monitoring` | **Phase 6 (Deployment)** | Population Stability Index ($\text{PSI} < 0.10$), Kolmogorov-Smirnov test, Wasserstein distance, retraining triggers. | 🟢 **Safe** |
+| `calibration-and-uncertainty` | **Phase 4 & 5 (Modeling)** | Platt scaling, Isotonic regression, Brier score decomposition, and Conformal prediction intervals ($1-\alpha$). | 🟢 **Safe** |
+| `causal-inference-analysis` | **Phase 1 & 5 (Business & Eval)** | Potential Outcomes ($Y(1)-Y(0)$), Inverse Probability Weighting (IPW), Difference-in-Differences (DiD), and Instrumental Variables. | 🟢 **Safe** |
 
 ---
 
 ## 🤖 How AI Agents Execute These Skills
 
 When an AI Agent is paired with this workspace, it discovers skills via:
-* **Global Customizations**: `~/.gemini/config/skills/`
+* **Global Customizations**: `~/.gemini/config/skills/` (59 installed skills)
 * **Workspace Customizations**: `.agents/skills/` (and within each project folder)
 
 Each skill contains a `SKILL.md` instruction file defining:
 1. **YAML Frontmatter**: Name and description triggering auto-discovery.
 2. **Methodological Directives**: Step-by-step guidance, mathematical foundations, and leakage prevention rules.
-3. **Reference Implementations**: Scripts, schemas, and verification checklists.
+3. **Reference Implementations**: Schemas, verification checklists, and audit criteria with zero unsafe binaries.
