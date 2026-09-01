@@ -1,10 +1,10 @@
 # 🌟 Enterprise Data Science, Machine Learning & TypeScript Platform Repository
 
-A comprehensive, production-grade portfolio of **14 Full-Stack Data Science, Machine Learning, Deep Learning, and TypeScript Systems (Projects 00 through 13)**, engineered adhering to the **CRISP-DM standard**, rigorous mathematical foundations, and state-of-the-art interactive UX.
+A comprehensive, production-grade portfolio of **15 Full-Stack Data Science, Machine Learning, Deep Learning, and TypeScript Systems (Projects 00 through 14)**, engineered adhering to the **CRISP-DM standard**, rigorous mathematical foundations, and state-of-the-art interactive UX.
 
 ---
 
-## 🏛️ Comprehensive Systems Portfolio Index (14 Projects)
+## 🏛️ Comprehensive Systems Portfolio Index (15 Projects)
 
 | # | System Title & Directory | Domain & Methodology | Backend Port | Frontend Port | Primary Screenshot Preview |
 |---|---|---|:---:|:---:|:---:|
@@ -22,6 +22,7 @@ A comprehensive, production-grade portfolio of **14 Full-Stack Data Science, Mac
 | **11** | [**Enterprise DS Audit**](./11_enterprise_ds_audit) | 6-Dimension Quality & Leakage Scorecard | `8011` | `5184` | ![DS Audit](./docs/screenshots/ds_audit_scorecard.png) |
 | **12** | [**TimePulse Forecasting**](./12_timeseries_forecasting) | Multi-Horizon Forecast Fans & 40-Lag ACF/PACF | `8012` | `5185` | ![Time Series](./docs/screenshots/timeseries_forecast_studio.png) |
 | **13** | [**NYC TLC Mobility Platform**](./13_crispdm_nyc_taxi_audit_platform) | Enterprise CRISP-DM Standard & Matt Pocock TS | `8013` | `5186` | ![NYC CRISP-DM](./13_crispdm_nyc_taxi_audit_platform/docs/screenshots/browser_test_01_trip_estimator.png) |
+| **14** | [**AutoGluon Multimodal Suite**](./14_autogluon_multimodal_automl_suite) | 3-Level DAG, Chronos Foundation TimeSeries, Vision-Language Fusion | `8014` | `5187` | ![AutoGluon Suite](./14_autogluon_multimodal_automl_suite/docs/screenshots/tabular_stacking_dag.png) |
 
 ---
 

@@ -1,6 +1,6 @@
-# 🏛️ Master Portfolio Implementation Plans Index (Projects 00 through 13)
+# 🏛️ Master Portfolio Implementation Plans Index (Projects 00 through 14)
 
-This document provides a comprehensive, formal compilation of the **In-Depth Implementation Plans** for all 14 data science, machine learning, and TypeScript projects across this repository.
+This document provides a comprehensive, formal compilation of the **In-Depth Implementation Plans** for all 15 data science, machine learning, and TypeScript projects across this repository.
 
 Each project plan follows textbook discipline, formal mathematical derivations, explicit data leakage prevention rules, and verifiable acceptance test suites.
 
@@ -24,6 +24,7 @@ Each project plan follows textbook discipline, formal mathematical derivations, 
 | **11** | [`11_enterprise_ds_audit`](./11_enterprise_ds_audit) | **Data Science Audit & Governance** | 6-Dimension Quality & Leakage Scorecard | [Plan 11](./implementation_plans/11_enterprise_ds_audit_plan.md) |
 | **12** | [`12_timeseries_forecasting`](./12_timeseries_forecasting) | **TimePulse Forecasting Engine** | Multi-Horizon Forecast Fans & 40-Lag ACF/PACF | [Plan 12](./implementation_plans/12_timeseries_forecasting_plan.md) |
 | **13** | [`13_crispdm_nyc_taxi_audit_platform`](./13_crispdm_nyc_taxi_audit_platform) | **NYC TLC Mobility Platform** | Enterprise CRISP-DM Standard & Matt Pocock TS | [Plan 13](./implementation_plans/13_crispdm_nyc_taxi_audit_platform_plan.md) |
+| **14** | [`14_autogluon_multimodal_automl_suite`](./14_autogluon_multimodal_automl_suite) | **AutoGluon Multimodal Suite** | 3-Level DAG, Chronos Foundation TimeSeries, Vision-Language Fusion | [Plan 14](./implementation_plans/14_autogluon_multimodal_automl_suite_plan.md) |
 
 ---
 

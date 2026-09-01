@@ -248,18 +248,58 @@ predicted_fare = explainer.expected_value + np.sum(shap_values[0])
 
 ---
 
-## 📸 Complete Project 13 Visual Tour & Playwright Verification Gallery
+---
 
-| # | Viewport Description | Screenshot |
+# 🤖 Project 14: AutoGluon Multimodal AutoML Suite (`14_autogluon_multimodal_automl_suite`)
+
+An enterprise-grade, state-of-the-art automated machine learning platform orchestrating **3-Level Stacking DAGs with Caruana Greedy Forward Selection**, **Chronos Foundation Model Probabilistic TimeSeries Forecasting**, **Vision-Language-Tabular Deep Learning Fusion**, and **Sub-10μs Model Distillation**.
+
+---
+
+## 🏛️ System Architecture Pointers & Code Highlights
+
+```python
+# 1. Level 3 Caruana Greedy Forward Selection Ensemble (core/tabular_engine.py:L190-L240)
+# Initializes ensemble with top model, then iteratively selects model maximizing validation metric:
+# y_ens^(t) = ((t - 1) * y_ens^(t-1) + y_m) / t
+ensemble_members = [best_model_name]
+for step in range(1, 25):
+    best_step_score = -1.0
+    best_candidate = None
+    for name in candidate_models:
+        candidate_preds = (current_ens_preds * step + oof_dict[name]) / (step + 1)
+        score = roc_auc_score(y_true, candidate_preds)
+        if score > best_step_score:
+            best_step_score = score
+            best_candidate = name
+    ensemble_members.append(best_candidate)
+
+# 2. Chronos Foundation Model Probabilistic Quantile Loss (core/timeseries_engine.py:L115-L160)
+# Discretizes numerical continuous series into token vocabularies and outputs multi-quantile forecasts:
+# L_alpha(y, q_alpha) = max(alpha * (y - q_alpha), (1 - alpha) * (q_alpha - y))
+wql = np.mean([2 * np.maximum(alpha * (y_true - q), (1 - alpha) * (q - y_true)).mean() for alpha, q in quantiles.items()])
+
+# 3. Vision-Language-Tabular Late-Fusion Cross Attention (core/multimodal_engine.py:L70-L125)
+# Combines DeBERTa text tokens, ViT/CLIP vision embeddings, and tabular MLP projections:
+# H_fused = Softmax(Q * K^T / sqrt(d_k)) * V
+fused_representation = np.dot(softmax(np.dot(Q, K.T) / np.sqrt(d_k)), V)
+```
+
+---
+
+## 📸 Complete Project 14 Visual Tour & Playwright Verification Gallery
+
+| # | Feature Area & Description | Verification Screenshot |
 |---|---|---|
-| **1** | **Live Inference Trip Estimator**: Interactive route presets, coordinate sliders, dynamic surge, and local TreeSHAP waterfall | ![Estimator](./13_crispdm_nyc_taxi_audit_platform/docs/screenshots/browser_test_01_trip_estimator.png) |
-| **2** | **10-Page CRISP-DM Paper Dossier**: KaTeX LaTeX math equations, ablation tables, and pagination | ![Paper](./13_crispdm_nyc_taxi_audit_platform/docs/screenshots/browser_test_02_crisp_dm_paper.png) |
-| **3** | **Enhanced 6-Subtab EDA Dashboard**: 14-bin distributions, Tukey IQR fences ($1.5 \times \text{IQR}$), OLS bivariate scatters, and 24h × 7D heatmap | ![EDA](./13_crispdm_nyc_taxi_audit_platform/docs/screenshots/browser_test_03_eda_scorecard.png) |
-| **4** | **Spatial Clustering Map**: Interactive SVG map displaying 6 mobility centroids across Manhattan, Brooklyn, Queens, JFK, LGA | ![Clustering](./13_crispdm_nyc_taxi_audit_platform/docs/screenshots/browser_test_04_spatial_clustering.png) |
-| **5** | **AutoResearch Tournament & Optuna HPO**: 7-backbone leaderboard, 5-stage feature ablation matrix, and 30-trial TPE curve | ![AutoResearch](./13_crispdm_nyc_taxi_audit_platform/docs/screenshots/browser_test_05_autoresearch_hpo.png) |
-| **6** | **TreeSHAP Explainability & Peer Review QA**: Global feature attribution bars, Partial Dependence Plots, and 4-tier QA checklist | ![TreeSHAP](./13_crispdm_nyc_taxi_audit_platform/docs/screenshots/browser_test_06_shap_qa.png) |
-| **7** | **Code Auditor Workbench**: Syntax-highlighted source snippets with architectural pointers for auditors | ![Code Auditor](./13_crispdm_nyc_taxi_audit_platform/docs/screenshots/browser_test_07_code_auditor.png) |
-| **8** | **MLOps Drift Monitor & Live Load Tester**: Real-time PSI drift monitoring and live concurrency stress testing ($>60,000\text{ RPS}$) | ![MLOps](./13_crispdm_nyc_taxi_audit_platform/docs/screenshots/browser_test_08_mlops_load_test.png) |
-| **9** | **Architecture & 27 Skills Matrix**: "How This App Is Fully Built" modal and admin tab detailing all 27 operationalized skills | ![Architecture Matrix](./13_crispdm_nyc_taxi_audit_platform/docs/screenshots/browser_test_09_architecture_skills_modal.png) |
+| **1** | **Multi-Task Tabular Stacking DAG Predictor**: Interactive feature scoring with active probability routing across Level 1 base models, Level 2 OOF meta-features, and Level 3 Caruana ensemble | ![Tabular DAG](./14_autogluon_multimodal_automl_suite/docs/screenshots/tabular_stacking_dag.png) |
+| **2** | **Chronos Foundation Model TimeSeries Forecaster**: Multi-horizon probabilistic forecasting ($P_{10}, P_{50}, P_{90}$) with dynamic marketing promotion schedule simulator | ![Chronos TimeSeries](./14_autogluon_multimodal_automl_suite/docs/screenshots/chronos_timeseries.png) |
+| **3** | **Vision + Language + Tabular MultiModal Fusion**: Late-fusion deep learning valuation and zero-shot cross-modal semantic catalog retrieval | ![MultiModal Fusion](./14_autogluon_multimodal_automl_suite/docs/screenshots/multimodal_fusion.png) |
+| **4** | **AutoGluon Automated EDA & Covariate Shift**: 6-subtab exploratory analytics suite with Tukey IQR outlier fences, Bivariate OLS regressions, and Kolmogorov-Smirnov drift testing | ![Auto-EDA Suite](./14_autogluon_multimodal_automl_suite/docs/screenshots/auto_eda_suite.png) |
+| **5** | **AutoResearch 4-Phase Tournament**: Automated hill-climbing tournament traversing baselines, bagging, stacking DAGs, and ensemble selection with Optuna HPO trajectory | ![AutoResearch Tournament](./14_autogluon_multimodal_automl_suite/docs/screenshots/autoresearch_tournament.png) |
+| **6** | **Explainable AI & TreeSHAP Waterfall**: Permutation feature importance drops, local TreeSHAP waterfall decomposition, and interactive what-if counterfactual playground | ![Explainable AI](./14_autogluon_multimodal_automl_suite/docs/screenshots/explainable_ai.png) |
+| **7** | **Production MLOps & Model Distillation**: Compresses complex 3-level ensemble into 9μs student model ($5.0\times$ speedup, $99.4\%$ fidelity), with >50k RPS load testing and PSI monitoring | ![MLOps Distillation](./14_autogluon_multimodal_automl_suite/docs/screenshots/mlops_distillation.png) |
+| **8** | **10-Page CRISP-DM Paper Dossier**: Formal IEEE/ACM standard manuscript with KaTeX LaTeX mathematical derivations across all 6 CRISP-DM lifecycle phases | ![CRISP-DM Paper](./14_autogluon_multimodal_automl_suite/docs/screenshots/crisp_dm_paper.png) |
+| **9** | **System Architecture & 30-Skills Matrix Tab**: Operational data science catalog with LaTeX mathematical equations, line references, and execution status | ![Architecture Skills Matrix](./14_autogluon_multimodal_automl_suite/docs/screenshots/architecture_skills_matrix.png) |
+| **10**| **System Architecture Skills Modal**: Interactive modal dialog accessible from the navbar providing instant search and filtering across all 30 operational skills | ![Architecture Modal](./14_autogluon_multimodal_automl_suite/docs/screenshots/architecture_modal.png) |
 
 

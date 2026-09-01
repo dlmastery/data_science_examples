@@ -21,6 +21,8 @@ This document records the exact, verbatim prompts and directives used to generat
 | **10** | [`10_crispdm_masters_curriculum`](./10_crispdm_masters_curriculum) | **CRISP-DM Master's Platform** | `/teamwork-preview As an industry expert data scientist and expert in CRISP-DM methodology for data science projects, build an end to end data science project based on a popular kaggle dataset...` |
 | **11** | [`11_enterprise_ds_audit`](./11_enterprise_ds_audit) | **Data Science Audit & Governance** | `/teamwork-preview do a advanced data science audit for all the projects and provide detailed report in the website` |
 | **12** | [`12_timeseries_forecasting`](./12_timeseries_forecasting) | **TimePulse Forecasting Engine** | `/teamwork-preview build a similar website in directory timeseries_test for timeseries forcasting similar to other projects you built - including detailed crisp-dm steps and admin and other dashboards` |
+| **13** | [`13_crispdm_nyc_taxi_audit_platform`](./13_crispdm_nyc_taxi_audit_platform) | **CRISP-DM NYC TLC Audit Platform** | `/teamwork-preview implement a new project with following crisp-dm methodology and engaging all the data science skills i have installed...` |
+| **14** | [`14_autogluon_multimodal_automl_suite`](./14_autogluon_multimodal_automl_suite) | **AutoGluon Multimodal AutoML Suite** | `/teamwork_preview in similar fashion do a spectacular automl demo of various data science using autogluon packages latest package illustrating various capabilities` |
 
 ---
 
@@ -268,9 +270,12 @@ can you do update github prompts.md as well as other documentation and readme.md
   5. [`IMPLEMENTATION_PLANS.md`](./IMPLEMENTATION_PLANS.md) & [`implementation_plans/13_crispdm_nyc_taxi_audit_platform_plan.md`](./implementation_plans/13_crispdm_nyc_taxi_audit_platform_plan.md): Updated checklists, KaTeX math specifications, and Playwright 12-step verification results.
   6. Committed and pushed all documentation assets to GitHub repository `dlmastery/data_science_examples` on `main`.
 
+---
 
-
-
-
+### 13. Project 14: AutoGluon Multimodal AutoML Suite (`14_autogluon_multimodal_automl_suite`)
+```text
+/teamwork_preview in similar fashion do a spectacular automl demo of various data science using autogluon packages latest package illustrating various capabilities
+```
+* **Execution**: Full enterprise-grade AutoML platform orchestrating a 3-Level Stacking DAG with Caruana Greedy Forward Selection, Chronos T5 Transformer Foundation Model probabilistic time series forecasting ($P_{10}, P_{50}, P_{90}$), Vision-Language-Tabular Deep Learning Late-Fusion, AutoGluon Automated EDA with Kolmogorov-Smirnov covariate drift, AutoResearch 4-phase tournament hill climbing, TreeSHAP explainability, 9μs student model distillation ($5.0\times$ speedup, $99.4\%$ fidelity), 10-page KaTeX CRISP-DM research paper dossier, 30-skills operational matrix, and AST zero-leakage code auditor on FastAPI backend Port 8014 & Vite React Port 5187.
 
 
