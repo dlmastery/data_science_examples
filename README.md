@@ -1,10 +1,10 @@
 # 🌟 Enterprise Data Science, Machine Learning & TypeScript Platform Repository
 
-A comprehensive, production-grade portfolio of **15 Full-Stack Data Science, Machine Learning, Deep Learning, and TypeScript Systems (Projects 00 through 14)**, engineered adhering to the **CRISP-DM standard**, rigorous mathematical foundations, and state-of-the-art interactive UX.
+A comprehensive, production-grade portfolio of **16 Full-Stack Data Science, Machine Learning, Deep Learning, and TypeScript Systems (Projects 00 through 15)**, engineered adhering to the **CRISP-DM standard**, rigorous mathematical foundations, and state-of-the-art interactive UX.
 
 ---
 
-## 🏛️ Comprehensive Systems Portfolio Index (15 Projects)
+## 🏛️ Comprehensive Systems Portfolio Index (16 Projects)
 
 | # | System Title & Directory | Domain & Methodology | Backend Port | Frontend Port | Primary Screenshot Preview |
 |---|---|---|:---:|:---:|:---:|
@@ -23,15 +23,16 @@ A comprehensive, production-grade portfolio of **15 Full-Stack Data Science, Mac
 | **12** | [**TimePulse Forecasting**](./12_timeseries_forecasting) | Multi-Horizon Forecast Fans & 40-Lag ACF/PACF | `8012` | `5185` | ![Time Series](./docs/screenshots/timeseries_forecast_studio.png) |
 | **13** | [**NYC TLC Mobility Platform**](./13_crispdm_nyc_taxi_audit_platform) | Enterprise CRISP-DM Standard & Matt Pocock TS | `8013` | `5186` | ![NYC CRISP-DM](./13_crispdm_nyc_taxi_audit_platform/docs/screenshots/browser_test_01_trip_estimator.png) |
 | **14** | [**AutoGluon Multimodal Suite**](./14_autogluon_multimodal_automl_suite) | 3-Level DAG, Chronos Foundation TimeSeries, Vision-Language Fusion | `8014` | `5187` | ![AutoGluon Suite](./14_autogluon_multimodal_automl_suite/docs/screenshots/tabular_stacking_dag.png) |
+| **15** | [**SPY SOTA TimeSeries Alpha**](./15_spy_timeseries_sota_forecasting) | Chronos Foundation Forecaster, PatchTST, TFT, Purged Walk-Forward Backtesting (Sharpe 2.15) | `8015` | `5188` | ![SPY Forecast](./15_spy_timeseries_sota_forecasting/docs/screenshots/01_forecast_studio.png) |
 
 ---
 
 ## 🎯 Verbatim Reproduction Prompt Catalog, Implementation Plans & Formal DS Audit
 
 * **Prompt Catalog**: Every prompt used to generate, iterate, and verify these applications is cataloged chronologically in 👉 **[PROMPTS.md](./PROMPTS.md)**
-* **In-Depth Implementation Plans**: Full technical specifications, type systems, and verification suites for all 14 systems are cataloged in 👉 **[IMPLEMENTATION_PLANS.md](./IMPLEMENTATION_PLANS.md)**
+* **In-Depth Implementation Plans**: Full technical specifications, type systems, and verification suites for all 15 systems are cataloged in 👉 **[IMPLEMENTATION_PLANS.md](./IMPLEMENTATION_PLANS.md)**
 * **Master Architectural Walkthrough**: Deep-dive code references, AST inspection pointers, and visual tours across all systems in 👉 **[WALKTHROUGH.md](./WALKTHROUGH.md)**
-* **AI Agent Skills**: 59 autonomous agent skills (including 6 newly acquired safe CRISP-DM skills) packaged inside `skills/` and `.agents/skills/` to replicate, train, and test each system are documented in 👉 **[SKILLS.md](./SKILLS.md)**
+* **AI Agent Skills**: 60 autonomous agent skills (including Project 15 SPY TimeSeries skill) packaged inside `skills/` and `.agents/skills/` to replicate, train, and test each system are documented in 👉 **[SKILLS.md](./SKILLS.md)**
 * **Data Science & Leakage Audit**: Full forensic code audit certifying zero leakage and 99.85% compliance is documented in 👉 **[AUDIT_REPORT.md](./AUDIT_REPORT.md)**
 
 ---

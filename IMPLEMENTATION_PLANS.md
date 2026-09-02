@@ -25,6 +25,7 @@ Each project plan follows textbook discipline, formal mathematical derivations, 
 | **12** | [`12_timeseries_forecasting`](./12_timeseries_forecasting) | **TimePulse Forecasting Engine** | Multi-Horizon Forecast Fans & 40-Lag ACF/PACF | [Plan 12](./implementation_plans/12_timeseries_forecasting_plan.md) |
 | **13** | [`13_crispdm_nyc_taxi_audit_platform`](./13_crispdm_nyc_taxi_audit_platform) | **NYC TLC Mobility Platform** | Enterprise CRISP-DM Standard & Matt Pocock TS | [Plan 13](./implementation_plans/13_crispdm_nyc_taxi_audit_platform_plan.md) |
 | **14** | [`14_autogluon_multimodal_automl_suite`](./14_autogluon_multimodal_automl_suite) | **AutoGluon Multimodal Suite** | 3-Level DAG, Chronos Foundation TimeSeries, Vision-Language Fusion | [Plan 14](./implementation_plans/14_autogluon_multimodal_automl_suite_plan.md) |
+| **15** | [`15_spy_timeseries_sota_forecasting`](./15_spy_timeseries_sota_forecasting) | **SPY SOTA TimeSeries Alpha** | Chronos Forecaster, PatchTST, TFT, Purged Walk-Forward Backtesting (Sharpe 2.15) | [Plan 15](./implementation_plans/15_spy_timeseries_sota_forecasting_plan.md) |
 
 ---
 

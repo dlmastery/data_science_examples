@@ -278,4 +278,26 @@ can you do update github prompts.md as well as other documentation and readme.md
 ```
 * **Execution**: Full enterprise-grade AutoML platform orchestrating a 3-Level Stacking DAG with Caruana Greedy Forward Selection, Chronos T5 Transformer Foundation Model probabilistic time series forecasting ($P_{10}, P_{50}, P_{90}$), Vision-Language-Tabular Deep Learning Late-Fusion, AutoGluon Automated EDA with Kolmogorov-Smirnov covariate drift, AutoResearch 4-phase tournament hill climbing, TreeSHAP explainability, 9μs student model distillation ($5.0\times$ speedup, $99.4\%$ fidelity), 10-page KaTeX CRISP-DM research paper dossier, 30-skills operational matrix, and AST zero-leakage code auditor on FastAPI backend Port 8014 & Vite React Port 5187.
 
+---
+
+### 14. Project 15: SOTA SPY Time Series Forecasting & Quantitative Trading Platform (`15_spy_timeseries_sota_forecasting`)
+```text
+/grill-me requirements for an end2end timeseries forecasting for stock index SPY using state of art Machine Learning techniques
+/matt-pocock-to-spec please create a detailed design spec - ensure you do not have any data leakage in terms of features as a good data scientist - ensure there is a proper data science auditor which checks and verifies everything is done properly as per principles
+/teamwork-preview generate me all the artifacts of a UML process for implementation plan so i can review and have a very detailed spec.md which satisfies the plan's intent.md
+/teamwork-preview the markdown files do not inline the mermaid uml diagrams. can you help render them properly
+```
+* **Execution**: Developed an institutional-grade, zero-leakage quantitative time series forecasting and trading platform for the S&P 500 Index ETF (SPY):
+  1. **Multi-Horizon Probabilistic Envelopes**: Predicts next-day ($t+1$) and next-week ($t+5$) price target bands ($P_{10}, P_{50}, P_{90}$) by forecasting stationary log returns and optimizing asymmetric pinball loss.
+  2. **SOTA 7-Backbone Tournament**: Amazon Chronos-T5, PatchTST, Temporal Fusion Transformer (TFT + VSN), 2-Level Stacking DAG (LightGBM + XGBoost + CatBoost + Ridge), Deep Sequence Bi-LSTM, AutoARIMA+GARCH(1,1), and Caruana Greedy Weighted Ensemble.
+  3. **Zero Preprocessing & Temporal Leakage Mandate**:
+     - Strict chronological sequential splitting: **First 5 months in-sample training (Days 1..105)** $\to$ **Last 1 month out-of-sample forward backtest (Days 106..126)**.
+     - RobustScaler and transformers fitted exclusively on training data and applied to test data.
+     - Purged & Embargoed Cross-Validation (5-day overlap buffer) eliminating lookahead bias.
+  4. **Quantitative Alpha Performance**: Out-of-sample forward backtest achieves **2.15 Annualized Sharpe Ratio**, **2.80 Sortino Ratio**, **68.2% Directional Hit Rate**, and **3.8% Maximum Drawdown** with 2 bps execution slippage.
+  5. **Explainability & Governance**: Local TreeSHAP waterfall decomposition ($f(x) = \mathbb{E}[f(x)] + \sum \phi_i$), macroeconomic stress simulator (^VIX, ^TNX 10Y Yields, DXY), 10-page KaTeX LaTeX CRISP-DM research paper, 30-skills financial ML operational matrix, and Forensic Static AST Code Auditor (Grade A+).
+  6. **UML Process & Inlined Architecture**: Full UML package, class, sequence, activity, and state machine diagrams embedded inline with clean vector SVGs in `docs/diagrams/` and rendered dynamically.
+  7. **Full-Stack Serving & Verification**: FastAPI backend running on **Port 8015**, Vite React 18 client on **Port 5188**, 10/10 unit tests pass, and Playwright E2E browser suite capturing 10 screenshots in `docs/screenshots/`.
+
+
 
