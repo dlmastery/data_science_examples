@@ -1,6 +1,6 @@
-# 🏛️ Master Portfolio Implementation Plans Index (Projects 00 through 14)
+# 🏛️ Master Portfolio Implementation Plans Index (Projects 00 through 15)
 
-This document provides a comprehensive, formal compilation of the **In-Depth Implementation Plans** for all 15 data science, machine learning, and TypeScript projects across this repository.
+This document provides a comprehensive, formal compilation of the **In-Depth Implementation Plans** for all 16 data science, machine learning, and TypeScript projects across this repository.
 
 Each project plan follows textbook discipline, formal mathematical derivations, explicit data leakage prevention rules, and verifiable acceptance test suites.
 
@@ -32,10 +32,10 @@ Each project plan follows textbook discipline, formal mathematical derivations, 
 ## 📑 Portfolio-Wide Engineering Standards
 
 ### 1. Data Leakage Prevention Protocol
-All 14 projects enforce strict separation between feature transformation and cross-validation splits. Imputers (`SimpleImputer`), Scalers (`StandardScaler`, `RobustScaler`), and Target Encoders are strictly wrapped in Scikit-Learn `Pipeline` or `ColumnTransformer` constructs to prevent validation information leakage.
+All 16 projects enforce strict separation between feature transformation and cross-validation splits. Imputers (`SimpleImputer`), Scalers (`StandardScaler`, `RobustScaler`), and Target Encoders are strictly wrapped in Scikit-Learn `Pipeline` or `ColumnTransformer` constructs to prevent validation information leakage.
 
 ### 2. Matt Pocock TypeScript Architecture
-All full-stack TypeScript applications (`00`, `08`, `09`, `13`) utilize Matt Pocock Total TypeScript patterns:
+All full-stack TypeScript applications (`00`, `08`, `09`, `13`, `14`, `15`) utilize Matt Pocock Total TypeScript patterns:
 * **Discriminated Unions**: Exhaustive state machine modeling for async operations.
 * **Branded / Nominal Types**: Runtime-safe cryptographic identifiers preventing parameter transposition.
 * **Zod Runtime Schema Validation**: Inferred static typing matching runtime payloads.
